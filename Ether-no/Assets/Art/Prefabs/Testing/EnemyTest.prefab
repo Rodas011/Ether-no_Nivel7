@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7532869802114064429}
   - component: {fileID: 5689258466907687431}
   - component: {fileID: 8849661260274647224}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: EnemyModelTest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 7715710065813143602}
   - component: {fileID: 5936833775926635241}
   - component: {fileID: 2768461721001552619}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Eyes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -200,9 +200,9 @@ GameObject:
   - component: {fileID: 2120922484666615962}
   - component: {fileID: 6235011741947978198}
   - component: {fileID: 8360560165976002222}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: EnemyTest
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
