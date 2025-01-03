@@ -34,7 +34,7 @@ public class BulletController : MonoBehaviour
     private void OnTriggerEnter(Collider collision)
     {
         //Explode if bullet hits an enemy directly
-        if (collision.GetComponent<Collider>().CompareTag("Enemy"))
+        if (collision.GetComponent<Collider>().CompareTag("Enemy") || collision.GetComponent<Collider>().CompareTag("Player"))
         {
             Explode(collision);
         }else
