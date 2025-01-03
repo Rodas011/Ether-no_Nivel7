@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2347857976587672193}
   - component: {fileID: 8152417064098685134}
   - component: {fileID: 6076342419826904677}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Eyes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -118,9 +118,9 @@ GameObject:
   - component: {fileID: 8532676260797354774}
   - component: {fileID: 5306623377383360685}
   - component: {fileID: 3660196335579803840}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PlayerTest
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -231,7 +231,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3341507331856846910}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: AttackPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -264,7 +264,7 @@ GameObject:
   - component: {fileID: 7127774793707597892}
   - component: {fileID: 3066797415028964478}
   - component: {fileID: 3258327610357517504}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PlayerModelTest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
