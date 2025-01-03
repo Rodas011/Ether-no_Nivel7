@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 602381585964881971}
   - component: {fileID: 5298211541128816313}
   m_Layer: 8
-  m_Name: Bullet
+  m_Name: BulletPlayer
   m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -146,7 +146,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3ee8de0935d5474bb8a1df517be0afa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  useGravity: 0
-  maxCollisions: 1
   maxLifetime: 5
-  explodeOnTouch: 1
+  damage: 1
