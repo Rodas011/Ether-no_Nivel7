@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7526840935128379310}
   - component: {fileID: 733483735191404388}
   m_Layer: 0
-  m_Name: Pared3
+  m_Name: WallTest3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -62,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7e7746972a1184443b9364584cd28fef, type: 2}
+  - {fileID: 2100000, guid: f2167713584751e449ce397744830bb4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
