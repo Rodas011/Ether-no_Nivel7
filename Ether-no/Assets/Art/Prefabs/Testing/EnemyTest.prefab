@@ -201,6 +201,8 @@ GameObject:
   - component: {fileID: 6235011741947978198}
   - component: {fileID: 8360560165976002222}
   - component: {fileID: 3517633649069193300}
+  - component: {fileID: 1992162234337095879}
+  - component: {fileID: 2730539050849539741}
   m_Layer: 7
   m_Name: EnemyTest
   m_TagString: Enemy
@@ -292,6 +294,41 @@ MonoBehaviour:
   shootForce: 10
   frecuency: 0.5
   attackRange: 10
+--- !u!114 &1992162234337095879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5396534246377148172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ac6a66a8b845b64a8578d3943d866b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chaseRange: 1000
+--- !u!195 &2730539050849539741
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5396534246377148172}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 2
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 1
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 1
 --- !u!1 &6591926467208164790
 GameObject:
   m_ObjectHideFlags: 0
