@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class HealthController : MonoBehaviour
@@ -9,8 +7,7 @@ public class HealthController : MonoBehaviour
     private float defense;
 
     //Get the max health from the PlayerController or the EnemyController
-
-    void Start()
+    void Awake()
     {
         if (TryGetComponent<PlayerController>(out var playerController))
         {
@@ -47,6 +44,12 @@ public class HealthController : MonoBehaviour
     private void Die()
     {
         Debug.Log($"{gameObject.name} has died.");
-        Destroy(gameObject); // Destruir el objeto como ejemplo de muerte
+        if(gameObject.name == "Player")
+        {
+            GameEvents.current.GameOver();
+        }else
+        {
+            Destroy(gameObject);
+        }
     }
 }
