@@ -116,6 +116,8 @@ GameObject:
   - component: {fileID: 4126738989169450748}
   - component: {fileID: 4732582932869771513}
   - component: {fileID: 8532676260797354774}
+  - component: {fileID: 1732023416169656399}
+  - component: {fileID: 55212472355826536}
   - component: {fileID: 5306623377383360685}
   - component: {fileID: 3660196335579803840}
   m_Layer: 6
@@ -192,6 +194,35 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &1732023416169656399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2006918686798495585}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22caba8c5278b194d8970c34b8207b6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10
+  defense: 1
+  health: 100
+  speed: 5
+  frecuency: 0.5
+--- !u!114 &55212472355826536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2006918686798495585}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7516319dfed38a643b8cb97d96297ea4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &5306623377383360685
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -204,7 +235,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0623a6e5fd87e5944af52703d4af80e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
   target: {fileID: 0}
 --- !u!114 &3660196335579803840
 MonoBehaviour:
@@ -221,7 +251,6 @@ MonoBehaviour:
   bullet: {fileID: 4330267565062289254, guid: 8212f7a0247cecd4b829cb8cc559b25a, type: 3}
   attackPoint: {fileID: 3341507331856846910}
   shootForce: 10
-  frecuency: 0.5
 --- !u!1 &4828189875516562594
 GameObject:
   m_ObjectHideFlags: 0

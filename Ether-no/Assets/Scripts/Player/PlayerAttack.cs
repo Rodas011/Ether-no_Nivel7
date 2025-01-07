@@ -6,9 +6,17 @@ public class PlayerAttack : MonoBehaviour
     public GameObject bullet;
     public Transform attackPoint;
     public float shootForce = 10f;
-    public float frecuency = 0.5f; //Time between shots
 
+    private float frecuency; //Time between shots
     private bool readyToShoot = true;
+    private PlayerController controller;
+
+    void Awake()
+    {
+        //Get the frecuency from PlayerController
+        controller = GetComponent<PlayerController>();
+        frecuency = controller.frecuency;
+    }
 
     void Update()
     {
@@ -27,6 +35,9 @@ public class PlayerAttack : MonoBehaviour
         Vector3 direction = transform.forward;
         GameObject currentBullet = Instantiate(bullet, attackPoint.position, Quaternion.identity);
         currentBullet.transform.forward = direction.normalized;
+
+        // Initialize the bullet with the shooter (this object)
+        currentBullet.GetComponent<BulletController>().damage = controller.damage;
 
         //Add force to the bullet
         currentBullet.GetComponent<Rigidbody>().AddForce(direction.normalized * shootForce, ForceMode.Impulse);
