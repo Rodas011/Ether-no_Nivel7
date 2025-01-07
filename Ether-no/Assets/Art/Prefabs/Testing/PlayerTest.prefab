@@ -206,6 +206,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22caba8c5278b194d8970c34b8207b6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  baseStats: {fileID: 11400000, guid: ebc113f62662e3e43bd9a35a2d8e5d77, type: 2}
   damage: 10
   defense: 1
   health: 100

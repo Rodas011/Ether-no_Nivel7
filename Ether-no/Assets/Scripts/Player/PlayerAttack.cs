@@ -7,6 +7,7 @@ public class PlayerAttack : MonoBehaviour
     public Transform attackPoint;
     public float shootForce = 10f;
 
+    private float damage; //Damage per shot
     private float frecuency; //Time between shots
     private bool readyToShoot = true;
     private PlayerController controller;
@@ -16,6 +17,7 @@ public class PlayerAttack : MonoBehaviour
         //Get the frecuency from PlayerController
         controller = GetComponent<PlayerController>();
         frecuency = controller.frecuency;
+        damage = controller.damage;
     }
 
     void Update()
@@ -37,7 +39,7 @@ public class PlayerAttack : MonoBehaviour
         currentBullet.transform.forward = direction.normalized;
 
         // Initialize the bullet with the shooter (this object)
-        currentBullet.GetComponent<BulletController>().damage = controller.damage;
+        currentBullet.GetComponent<BulletController>().damage = damage;
 
         //Add force to the bullet
         currentBullet.GetComponent<Rigidbody>().AddForce(direction.normalized * shootForce, ForceMode.Impulse);
