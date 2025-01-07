@@ -8,18 +8,24 @@ public class EnemyAttack : MonoBehaviour
     public GameObject bullet;
     public Transform attackPoint;
     public float shootForce = 10f;
-    public float frecuency = 0.5f; //Time between shots
     public float attackRange = 10f;
 
-    private bool playerInAttackRange;
+    private float frecuency; //Time between shots
     private bool readyToShoot = true;
     private Transform player;
     private LayerMask whatIsPlayer;
+    private bool playerInAttackRange;
+    private EnemyController controller;
 
-    private void Awake()
+    void Awake()
     {
+        //Get the player and the layer mask
         player = GameObject.FindWithTag("Player").transform;
         whatIsPlayer = LayerMask.GetMask("whatIsPlayer");
+
+        //Get the frecuency from PlayerController
+        controller = GetComponent<EnemyController>();
+        frecuency = controller.frecuency;
     }
 
     void Update()
@@ -43,6 +49,9 @@ public class EnemyAttack : MonoBehaviour
         Vector3 direction = transform.forward;
         GameObject currentBullet = Instantiate(bullet, attackPoint.position, Quaternion.identity);
         currentBullet.transform.forward = direction.normalized;
+
+        //Set the damage of the bullet
+        currentBullet.GetComponent<BulletController>().damage = controller.damage;
 
         //Add force to the bullet
         currentBullet.GetComponent<Rigidbody>().AddForce(direction.normalized * shootForce, ForceMode.Impulse);

@@ -4,7 +4,9 @@ public class BulletController : MonoBehaviour
 {
     //Stats
     public float maxLifetime = 3;
-    public float damage = 1;
+
+    public float damage;
+    private GameObject shooter;
 
     void Update()
     {
@@ -18,8 +20,15 @@ public class BulletController : MonoBehaviour
 
     private void Explode(Collider collision)
     {
-        //Logic for giving damage to the enemy
-        //collision.GetComponent<HealthController>().TakeDamage(damage);
+        //Logic for giving damage
+        if(collision.GetComponent<HealthController>() != null)
+        {
+            collision.GetComponent<HealthController>().TakeDamage(damage);
+        }
+        else
+        {
+            Debug.LogError("No HealthController found in " + collision.name);
+        }
 
         //Add a little delay
         Invoke("Destroy", 0.05f);

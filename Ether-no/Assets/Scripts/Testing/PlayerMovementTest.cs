@@ -2,10 +2,18 @@ using UnityEngine;
 
 public class PlayerMovementTest : MonoBehaviour
 {
-    public float speed = 5;
+    private float speed;
+    private PlayerController controller;
 
     //For visualizing the hit position
     public Transform target;
+
+    private void Awake()
+    {
+        //Get the speed from PlayerController
+        controller = GetComponent<PlayerController>();
+        speed = controller.speed;
+    }
 
     void Update()
     {
