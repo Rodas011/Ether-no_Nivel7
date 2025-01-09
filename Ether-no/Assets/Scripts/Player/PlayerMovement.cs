@@ -1,18 +1,18 @@
 using UnityEngine;
 
-public class PlayerMovementTest : MonoBehaviour
+public class PlayerMovement : MonoBehaviour
 {
     private float speed;
     private PlayerController controller;
-
-    //For visualizing the hit position
-    public Transform target;
+    private Rigidbody rb;
 
     private void Awake()
     {
         //Get the speed from PlayerController
         controller = GetComponent<PlayerController>();
         speed = controller.speed;
+
+        rb = GetComponent<Rigidbody>();
     }
 
     void Update()
@@ -23,16 +23,13 @@ public class PlayerMovementTest : MonoBehaviour
 
         Vector3 direction = new Vector3(horizontal, 0, vertical);
         direction.Normalize();
-        transform.position += direction * speed * Time.deltaTime;
+        rb.velocity = direction * speed;
 
         //Rotation
         RaycastHit hit;
         if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit))
         {
             transform.LookAt(new Vector3(hit.point.x, transform.position.y, hit.point.z));
-
-            //For visualizing the hit position
-            target.position = new Vector3(hit.point.x, 0, hit.point.z);
         }
      
     }

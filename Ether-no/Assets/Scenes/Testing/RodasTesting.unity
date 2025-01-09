@@ -214,7 +214,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 595557549}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: cfd7f347cde311f449462974ddbd98e1, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -319,7 +319,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 621433515}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: cfd7f347cde311f449462974ddbd98e1, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -394,37 +394,6 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 4.01, y: 1, z: -6}
   m_LocalScale: {x: 2, y: 2, z: 2}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &632170806
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 632170807}
-  m_Layer: 0
-  m_Name: MouseTarget
-  m_TagString: Untagged
-  m_Icon: {fileID: 7422848464349959988, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &632170807
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 632170806}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -619,7 +588,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1265486202}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: cfd7f347cde311f449462974ddbd98e1, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -885,7 +854,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1664920062}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: cfd7f347cde311f449462974ddbd98e1, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -1053,7 +1022,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1796252455}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: cfd7f347cde311f449462974ddbd98e1, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -1158,7 +1127,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2006717732}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: cfd7f347cde311f449462974ddbd98e1, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -1265,6 +1234,7 @@ GameObject:
   - component: {fileID: 2073625945}
   - component: {fileID: 2073625944}
   - component: {fileID: 2073625947}
+  - component: {fileID: 2073625948}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1390,6 +1360,22 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
+--- !u!114 &2073625948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2073625943}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b630cdb29596584abb9b87702a78287, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 50
+  offset: {x: 0, y: 0, z: 0}
+  distance: 15
+  rotation: {x: 0.5, y: 0, z: 0, w: 0.8660254}
 --- !u!1001 &1410594088766904645
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1589,11 +1575,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5306623377383360685, guid: 0cecf45042126304e8b7ad06d5bd0097,
-        type: 3}
-      propertyPath: target
-      value: 
-      objectReference: {fileID: 632170807}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1609,7 +1590,6 @@ SceneRoots:
   - {fileID: 6309186612628030376}
   - {fileID: 1410594088766904645}
   - {fileID: 1357384600}
-  - {fileID: 632170807}
   - {fileID: 1204604324}
   - {fileID: 595557553}
   - {fileID: 621433519}
