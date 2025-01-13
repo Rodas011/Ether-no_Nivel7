@@ -44,9 +44,7 @@ public class EnemyMovement : MonoBehaviour
 
     private void Chase()
     {
-        transform.LookAt(player.position);
-        agent.SetDestination(player.position);
+        transform.LookAt(new Vector3(player.position.x, transform.position.y, player.position.z));
+        agent.SetDestination(new Vector3(player.position.x, transform.position.y, player.position.z));
     }
-
-
 }
