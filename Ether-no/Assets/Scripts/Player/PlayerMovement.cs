@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [SerializeField] private GameState gameState;
+
     private float speed;
     private PlayerController controller;
     private Rigidbody rb;
@@ -15,7 +17,15 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
     }
 
-    void Update()
+    private void Update()
+    {
+        if (!gameState.isPaused)
+        {
+            Move();
+        }
+    }
+
+    private void Move()
     {
         //Movement
         float horizontal = Input.GetAxis("Horizontal");
@@ -31,6 +41,5 @@ public class PlayerMovement : MonoBehaviour
         {
             transform.LookAt(new Vector3(hit.point.x, transform.position.y, hit.point.z));
         }
-     
     }
 }

@@ -2,17 +2,17 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
-    //Stats
-    public GameObject bullet;
-    public Transform attackPoint;
-    public float shootForce = 10f;
+    [SerializeField] private GameState gameState;
+    [SerializeField] private GameObject bullet;
+    [SerializeField] private Transform attackPoint;
+    [SerializeField] private float shootForce = 10f;
 
     private float damage; //Damage per shot
     private float frecuency; //Time between shots
     private bool readyToShoot = true;
     private PlayerController controller;
 
-    void Awake()
+    private void Awake()
     {
         //Get the frecuency from PlayerController
         controller = GetComponent<PlayerController>();
@@ -20,34 +20,30 @@ public class PlayerAttack : MonoBehaviour
         damage = controller.damage;
     }
 
-    void Update()
+    private void Update()
     {
         //Shoot when the player clicks the left mouse button
-        if (Input.GetButton("Fire1") && readyToShoot)
+        if (Input.GetButton("Fire1") && readyToShoot && !gameState.isPaused)
         {
             Shoot();
         }
     }
 
-    void Shoot()
+    private void Shoot()
     {
         readyToShoot = false;
 
         //Instantiate the bullet
-        Vector3 direction = transform.forward;
-        GameObject currentBullet = Instantiate(bullet, attackPoint.position, Quaternion.identity);
-        currentBullet.transform.forward = direction.normalized;
+        GameObject currentBullet = Instantiate(bullet, attackPoint.position, transform.rotation);
 
-        // Initialize the bullet with the shooter (this object)
+        //Set the damage and force of the bullet
         currentBullet.GetComponent<BulletController>().damage = damage;
-
-        //Add force to the bullet
-        currentBullet.GetComponent<Rigidbody>().AddForce(direction.normalized * shootForce, ForceMode.Impulse);
+        currentBullet.GetComponent<Rigidbody>().AddForce(transform.forward * shootForce, ForceMode.Impulse);
 
         Invoke("ResetShoot", frecuency);
     }
 
-    void ResetShoot()
+    private void ResetShoot()
     {
         readyToShoot = true;
     }

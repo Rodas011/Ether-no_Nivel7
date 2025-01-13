@@ -2,19 +2,23 @@ using UnityEngine;
 
 public class BulletController : MonoBehaviour
 {
+    public GameState gameState;
+
     //Stats
     public float maxLifetime = 3;
 
-    public float damage;
-    private GameObject shooter;
+    [HideInInspector] public float damage;
+    [HideInInspector] public Vector3 tempVelocity;
 
     void Update()
     {
-        //Destroy the bullet after some time
-        maxLifetime -= Time.deltaTime;
-        if (maxLifetime <= 0)
+        if(!gameState.isPaused)
         {
-            Destroy();
+            maxLifetime -= Time.deltaTime;
+            if (maxLifetime <= 0)
+            {
+                Destroy();
+            }
         }
     }
 

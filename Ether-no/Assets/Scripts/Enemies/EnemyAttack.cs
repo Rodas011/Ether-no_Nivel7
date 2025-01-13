@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class EnemyAttack : MonoBehaviour
 {
-    //Stats
-    public GameObject bullet;
-    public Transform attackPoint;
-    public float shootForce = 10f;
-    public float attackRange = 10f;
-    public int numberOfBullets = 5;
-    public float bulletSpread = 10f;
+    [SerializeField] private GameState gameState;
+    [SerializeField] private GameObject bullet;
+    [SerializeField] private Transform attackPoint;
+    [SerializeField] private float shootForce = 10f;
+    [SerializeField] private float attackRange = 10f;
+    [SerializeField] private int numberOfBullets = 5;
+    [SerializeField] private float bulletSpread = 10f;
 
     private float frecuency; //Time between shots
     private bool readyToShoot = true;
@@ -19,7 +19,7 @@ public class EnemyAttack : MonoBehaviour
     private bool playerInAttackRange;
     private EnemyController controller;
 
-    void Awake()
+    private void Awake()
     {
         //Get the player and the layer mask
         player = GameObject.FindWithTag("Player").transform;
@@ -30,7 +30,7 @@ public class EnemyAttack : MonoBehaviour
         frecuency = controller.frecuency;
     }
 
-    void Update()
+    private void Update()
     {
         //Shoot when the player is in range
         playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
@@ -41,11 +41,11 @@ public class EnemyAttack : MonoBehaviour
         }
     }
 
-    void Shoot()
+    private void Shoot()
     {
         readyToShoot = false;
 
-        transform.LookAt(player);
+        transform.LookAt(new Vector3(player.position.x, transform.position.y, player.position.z));
 
         //Calculate the start rotation of the bullets
         float facingRotation = transform.eulerAngles.y;
@@ -61,17 +61,15 @@ public class EnemyAttack : MonoBehaviour
             float rotation = startRotation - angleIncrease * i;
             GameObject currentBullet = Instantiate(bullet, attackPoint.position, Quaternion.Euler(0f, rotation, 0f));
 
-            //Set the damage of the bullet
+            //Set the damage and force of the bullet
             currentBullet.GetComponent<BulletController>().damage = controller.damage;
-
-            //Add force to the bullet
             currentBullet.GetComponent<Rigidbody>().AddForce(currentBullet.transform.forward * shootForce, ForceMode.Impulse);
         }
 
         Invoke("ResetShoot", frecuency);
     }
 
-    void ResetShoot()
+    private void ResetShoot()
     {
         readyToShoot = true;
     }
