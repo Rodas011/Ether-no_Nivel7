@@ -202,7 +202,7 @@ GameObject:
   - component: {fileID: 8360560165976002222}
   - component: {fileID: 8270871251797310512}
   - component: {fileID: 4560865016856465861}
-  - component: {fileID: 3517633649069193300}
+  - component: {fileID: -2270609351809320943}
   - component: {fileID: 1992162234337095879}
   - component: {fileID: 2730539050849539741}
   m_Layer: 7
@@ -221,7 +221,7 @@ Transform:
   m_GameObject: {fileID: 5396534246377148172}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -8.04, y: 1, z: 0}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -308,7 +308,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7516319dfed38a643b8cb97d96297ea4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &3517633649069193300
+--- !u!114 &-2270609351809320943
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -317,13 +317,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 5396534246377148172}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e97154704d980a42b79a12f2b4c1ae0, type: 3}
+  m_Script: {fileID: 11500000, guid: 44ed8e2d5d6ec3d4792d00855276b49c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 5120939204166949799, guid: 81833138531454943a207b0c11f65e1b, type: 3}
   attackPoint: {fileID: 9129271464031723485}
   shootForce: 10
   attackRange: 10
+  numberOfBullets: 1
+  bulletSpread: 0
 --- !u!114 &1992162234337095879
 MonoBehaviour:
   m_ObjectHideFlags: 0
