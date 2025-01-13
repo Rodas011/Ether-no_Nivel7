@@ -236,6 +236,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0623a6e5fd87e5944af52703d4af80e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameState: {fileID: 11400000, guid: 021efec6f2dfd54439d732f7f534d779, type: 2}
 --- !u!114 &3660196335579803840
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -248,6 +249,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76f5ab55dffe467449b52a35e5c24fe2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameState: {fileID: 11400000, guid: 021efec6f2dfd54439d732f7f534d779, type: 2}
   bullet: {fileID: 4330267565062289254, guid: 8212f7a0247cecd4b829cb8cc559b25a, type: 3}
   attackPoint: {fileID: 3341507331856846910}
   shootForce: 10

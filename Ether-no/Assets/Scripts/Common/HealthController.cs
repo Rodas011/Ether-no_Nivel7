@@ -47,7 +47,12 @@ public class HealthController : MonoBehaviour
         if(gameObject.name == "Player")
         {
             GameEvents.current.GameOver();
-        }else
+        }else if (gameObject.name == "Dragon")
+        {
+            Destroy(gameObject);
+            GameEvents.current.Finnish();
+        }
+        else
         {
             Destroy(gameObject);
         }

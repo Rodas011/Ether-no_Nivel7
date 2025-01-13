@@ -6,8 +6,8 @@ using UnityEngine.Rendering;
 
 public class EnemyMovement : MonoBehaviour
 {
-    //Stats
-    public float chaseRange = 1000f;
+    [SerializeField] private GameState gameState;
+    [SerializeField] private float chaseRange = 1000f;
 
     private float speed;
     private Transform player;
@@ -16,7 +16,7 @@ public class EnemyMovement : MonoBehaviour
     private NavMeshAgent agent;
     private EnemyController controller;
 
-    void Awake()
+    private void Awake()
     {
         //Get the player and the layer mask
         player = GameObject.FindWithTag("Player").transform;
@@ -31,7 +31,7 @@ public class EnemyMovement : MonoBehaviour
         agent.speed = speed;
     }
 
-    void Update()
+    private void Update()
     {
         //Chase when the player is in range
         playerInChaseRange = Physics.CheckSphere(transform.position, chaseRange, whatIsPlayer);
@@ -45,6 +45,6 @@ public class EnemyMovement : MonoBehaviour
     private void Chase()
     {
         transform.LookAt(new Vector3(player.position.x, transform.position.y, player.position.z));
-        agent.SetDestination(new Vector3(player.position.x, transform.position.y, player.position.z));
+        agent.SetDestination(player.position);
     }
 }
