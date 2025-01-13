@@ -13,12 +13,21 @@ public class GameEvents : MonoBehaviour
     }
 
     public event Action onGameOver;
+    public event Action onFinnish;
 
     public void GameOver()
     {
         if (onGameOver != null)
         {
             onGameOver();
+        }
+    }
+
+    public void Finnish()
+    {
+        if (onFinnish != null)
+        {
+            onFinnish();
         }
     }
 }

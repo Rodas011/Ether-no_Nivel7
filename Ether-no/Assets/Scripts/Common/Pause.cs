@@ -23,6 +23,7 @@ public class Pause : MonoBehaviour
     private void Start()
     {
         GameEvents.current.onGameOver += onGameOver;
+        GameEvents.current.onFinnish += onFinnish;
     }
 
     private void Update()
@@ -43,6 +44,14 @@ public class Pause : MonoBehaviour
     }
 
     private void onGameOver()
+    {
+        if (!gameState.isPaused)
+        {
+            PauseGame();
+        }
+    }
+
+    private void onFinnish()
     {
         if (!gameState.isPaused)
         {
