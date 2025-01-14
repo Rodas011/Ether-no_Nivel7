@@ -3,31 +3,46 @@ using UnityEngine;
 
 public class GameEvents : MonoBehaviour
 {
-    [SerializeField] private GameState gameState;
     public static GameEvents current;
+    public event Action OnGameOver;
+    public event Action OnFinnish;
+    public event Action OnPause;
+    public event Action<GameObject> OnObjectDied;
 
     private void Awake()
     {
         current = this;
-        gameState.Reset();
     }
-
-    public event Action onGameOver;
-    public event Action onFinnish;
 
     public void GameOver()
     {
-        if (onGameOver != null)
+        if (OnGameOver != null)
         {
-            onGameOver();
+            OnGameOver();
         }
     }
 
     public void Finnish()
     {
-        if (onFinnish != null)
+        if (OnFinnish != null)
         {
-            onFinnish();
+            OnFinnish();
+        }
+    }
+
+    public void Pause()
+    {
+        if (OnPause != null)
+        {
+            OnPause();
+        }
+    }
+
+    public void ObjectDied(GameObject obj)
+    {
+        if (OnObjectDied != null)
+        {
+            OnObjectDied(obj);
         }
     }
 }

@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 5883491224179469060}
   - component: {fileID: 98833236777984036}
-  - component: {fileID: 4684516449592147339}
+  - component: {fileID: 5168459717767157951}
   - component: {fileID: 1005809032544208007}
-  - component: {fileID: 551422860551495583}
+  - component: {fileID: 4755384592887788888}
   m_Layer: 0
   m_Name: Game Events System
   m_TagString: Untagged
@@ -47,8 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0ad9f412b6866b4f8fc42600abbe95d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameState: {fileID: 11400000, guid: 021efec6f2dfd54439d732f7f534d779, type: 2}
---- !u!114 &4684516449592147339
+--- !u!114 &5168459717767157951
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -57,10 +56,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 8244816245191461722}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5e676e0840abe94e915eab030d2d193, type: 3}
+  m_Script: {fileID: 11500000, guid: 8c9660f1505a2a04e821a173ca371707, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   gameState: {fileID: 11400000, guid: 021efec6f2dfd54439d732f7f534d779, type: 2}
+  uiManager: {fileID: 4755384592887788888}
 --- !u!114 &1005809032544208007
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -74,7 +74,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameState: {fileID: 11400000, guid: 021efec6f2dfd54439d732f7f534d779, type: 2}
---- !u!114 &551422860551495583
+--- !u!114 &4755384592887788888
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -83,7 +83,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 8244816245191461722}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa42eb37fbc49de4284f307254494c89, type: 3}
+  m_Script: {fileID: 11500000, guid: dc43412fda141cb46befc73289cbc4b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameState: {fileID: 11400000, guid: 021efec6f2dfd54439d732f7f534d779, type: 2}
