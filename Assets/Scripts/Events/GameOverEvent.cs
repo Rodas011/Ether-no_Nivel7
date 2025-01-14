@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameOver : MonoBehaviour
+public class GameOverEvent : MonoBehaviour
 {
     [SerializeField] private GameState gameState;
     private GameObject gameOverCanvas;
