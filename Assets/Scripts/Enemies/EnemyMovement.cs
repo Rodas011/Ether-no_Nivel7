@@ -6,7 +6,6 @@ using UnityEngine.Rendering;
 
 public class EnemyMovement : MonoBehaviour
 {
-    [SerializeField] private GameState gameState;
     [SerializeField] private float chaseRange = 1000f;
 
     private float speed;

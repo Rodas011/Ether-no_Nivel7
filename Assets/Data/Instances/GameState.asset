@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90dc60daaf741ad468d7ae751d25c463, type: 3}
   m_Name: GameState
   m_EditorClassIdentifier: 
-  isPaused: 1
+  isPaused: 0
   isGameOver: 0

@@ -14,7 +14,7 @@ public class CameraController : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         Vector3 distanceVector = distance * -transform.forward;
         Vector3 position = Vector3.Lerp(transform.position, player.position + offset + distanceVector, moveSpeed * Time.deltaTime);

@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
-    [SerializeField] private GameState gameState;
     [SerializeField] private GameObject bullet;
     [SerializeField] private Transform attackPoint;
     [SerializeField] private float shootForce = 10f;
@@ -11,6 +10,12 @@ public class PlayerAttack : MonoBehaviour
     private float frecuency; //Time between shots
     private bool readyToShoot = true;
     private PlayerController controller;
+    private GameState gameState;
+
+    public void SetDependencies(GameState gameState)
+    {
+        this.gameState = gameState;
+    }
 
     private void Awake()
     {

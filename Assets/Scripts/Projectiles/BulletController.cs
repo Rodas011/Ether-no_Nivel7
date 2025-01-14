@@ -46,8 +46,9 @@ public class BulletController : MonoBehaviour
 
     private void OnTriggerEnter(Collider collision)
     {
-        //Explode if bullet hits an enemy directly
-        if (collision.GetComponent<Collider>().CompareTag("Enemy") || collision.GetComponent<Collider>().CompareTag("Player"))
+        //Explode if bullet hits a valid target directly
+        string[] validTags = { "Player", "Enemy", "Boss" };
+        if (System.Array.Exists(validTags, tag => collision.CompareTag(tag)))
         {
             Explode(collision);
         }else

@@ -389,8 +389,8 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1005809032544208007, guid: fc682ed5fed1348498bf75d2f95fd105,
           type: 3}
-        m_TargetAssemblyTypeName: Pause, Assembly-CSharp
-        m_MethodName: UnpauseGame
+        m_TargetAssemblyTypeName: PauseController, Assembly-CSharp
+        m_MethodName: PauseFromMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1072,8 +1072,8 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1005809032544208007, guid: fc682ed5fed1348498bf75d2f95fd105,
           type: 3}
-        m_TargetAssemblyTypeName: Pause, Assembly-CSharp
-        m_MethodName: UnpauseGame
+        m_TargetAssemblyTypeName: PauseController, Assembly-CSharp
+        m_MethodName: PauseFromMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -44,17 +44,6 @@ public class HealthController : MonoBehaviour
     private void Die()
     {
         Debug.Log($"{gameObject.name} has died.");
-        if(gameObject.name == "Player")
-        {
-            GameEvents.current.GameOver();
-        }else if (gameObject.name == "Dragon")
-        {
-            Destroy(gameObject);
-            GameEvents.current.Finnish();
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+        GameEvents.current.ObjectDied(gameObject);
     }
 }
