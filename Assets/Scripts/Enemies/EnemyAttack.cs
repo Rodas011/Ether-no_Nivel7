@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class EnemyAttack : MonoBehaviour
 {
-    [SerializeField] private GameState gameState;
     [SerializeField] private GameObject bullet;
     [SerializeField] private Transform attackPoint;
     [SerializeField] private float shootForce = 10f;

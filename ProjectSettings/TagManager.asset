@@ -8,6 +8,7 @@ TagManager:
   - BulletPlayer
   - BulletEnemy
   - Bullet
+  - Boss
   layers:
   - Default
   - TransparentFX

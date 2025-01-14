@@ -2,12 +2,16 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private GameState gameState;
-
     private float speed;
-    private PlayerController controller;
     private Rigidbody rb;
     private Vector3 direction;
+    private GameState gameState;
+    private PlayerController controller;
+
+    public void SetDependencies(GameState gameState)
+    {
+        this.gameState = gameState;
+    }
 
     private void Awake()
     {

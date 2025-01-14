@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
+    [Header("Enemy Stats")]
     public float damage = 10f;
     public float defense = 1f;
     public float health = 10f;
