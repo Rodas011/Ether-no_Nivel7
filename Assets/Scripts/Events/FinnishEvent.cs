@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Finnish : MonoBehaviour
+public class FinnishEvent : MonoBehaviour
 {
     [SerializeField] private GameState gameState;
     private GameObject finnishCanvas;
