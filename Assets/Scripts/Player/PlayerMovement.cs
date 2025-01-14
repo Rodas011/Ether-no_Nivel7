@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
     private float speed;
     private PlayerController controller;
     private Rigidbody rb;
+    private Vector3 direction;
 
     private void Awake()
     {
@@ -21,19 +22,29 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!gameState.isPaused)
         {
-            Move();
+            UserInput();
         }
     }
 
-    private void Move()
+    private void FixedUpdate()
+    {
+        Move();
+    }
+
+    private void UserInput()
     {
         //Movement
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
 
-        Vector3 direction = new Vector3(horizontal, 0, vertical);
+        direction = new Vector3(horizontal, 0, vertical);
         direction.Normalize();
-        rb.velocity = direction * speed;
+    }
+
+    private void Move()
+    {
+        //Movement
+        rb.velocity = new Vector3(direction.x * speed, rb.velocity.y, direction.z * speed);
 
         //Rotation
         RaycastHit hit;
