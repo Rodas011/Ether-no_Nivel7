@@ -9,13 +9,16 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5883491224179469060}
+  - component: {fileID: 1717808252829264758}
   - component: {fileID: 98833236777984036}
   - component: {fileID: 5168459717767157951}
   - component: {fileID: 1005809032544208007}
   - component: {fileID: 4755384592887788888}
+  - component: {fileID: 6508188088540689597}
+  - component: {fileID: 2564299530283362639}
   m_Layer: 0
   m_Name: Game Events System
-  m_TagString: Untagged
+  m_TagString: GameSystem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -35,6 +38,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1717808252829264758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8244816245191461722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e41602a0ae6fc1143bb89c5ccb1c6c80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameState: {fileID: 11400000, guid: 021efec6f2dfd54439d732f7f534d779, type: 2}
+  time: 0
 --- !u!114 &98833236777984036
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61,6 +78,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameState: {fileID: 11400000, guid: 021efec6f2dfd54439d732f7f534d779, type: 2}
   uiManager: {fileID: 4755384592887788888}
+  ProgressionManager: {fileID: 6508188088540689597}
 --- !u!114 &1005809032544208007
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -86,3 +104,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc43412fda141cb46befc73289cbc4b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6508188088540689597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8244816245191461722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24d2e2fbef9b7014da96ddfc86a55d24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentStage: 1
+  currentExperience: 0
+  experienceToNextStage: 100
+  experienceGrowthFactor: 1.5
+--- !u!114 &2564299530283362639
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8244816245191461722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a7746e6dd396dc4ba980acc60a03e8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameState: {fileID: 11400000, guid: 021efec6f2dfd54439d732f7f534d779, type: 2}
+  enemy: {fileID: 5396534246377148172, guid: 056df9c4aea302545b56c99ea5cee39c, type: 3}
+  boss: {fileID: 1136552307637764120, guid: a049cda90a5305d4abad71554951ab7a, type: 3}
+  spawnPoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  bossSpawnPoint: {fileID: 0}
+  timeBossSpawn: 60
