@@ -4,17 +4,24 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [Header("Player Stats")]
+    [Header("Player Base Stats")]
     [SerializeField] private PlayerBaseStats baseStats;
-    public float damage = 10f;
-    public float defense = 1f;
-    public float health = 100f;
-    public float speed = 5f;
-    public float frecuency = 0.5f;
+    public float damage;
+    public float defense;
+    public float health;
+    public float speed;
+    public float attackFrecuency;
+    public float shieldFrecuency;
+
+    [Header("Player Special Abilities")]
+    public int bulletsPerShot = 1;
+    public float shieldDuration = 1f;
+    public bool isShieldActive;
 
     [Header("Player Components")]
     [SerializeField] private PlayerAttack playerAttack;
     [SerializeField] private PlayerMovement playerMovement;
+    [SerializeField] private PlayerDefense playerDefense;
 
     [Header("Player Dependencies")]
     [SerializeField] private GameState gameState;
@@ -26,7 +33,8 @@ public class PlayerController : MonoBehaviour
         defense = baseStats.defense;
         health = baseStats.health;
         speed = baseStats.speed;
-        frecuency = baseStats.frecuency;
+        attackFrecuency = baseStats.attackFrecuency;
+        shieldFrecuency = baseStats.shieldFrecuency;
     }
 
     private void Start()
@@ -34,10 +42,12 @@ public class PlayerController : MonoBehaviour
         //Set the player components
         playerAttack = GetComponent<PlayerAttack>();
         playerMovement = GetComponent<PlayerMovement>();
+        playerDefense = GetComponent<PlayerDefense>();
 
         //Set the player dependencies
         playerAttack.SetDependencies(gameState);
         playerMovement.SetDependencies(gameState);
+        playerDefense.SetDependencies(gameState);
     }
 
 }
