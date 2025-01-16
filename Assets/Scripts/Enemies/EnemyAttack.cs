@@ -8,9 +8,10 @@ public class EnemyAttack : MonoBehaviour
     [SerializeField] private Transform attackPoint;
     [SerializeField] private float shootForce = 10f;
     [SerializeField] private float attackRange = 10f;
-    [SerializeField] private int numberOfBullets = 5;
+    [SerializeField] private int bulletsPerShot = 5;
     [SerializeField] private float bulletSpread = 10f;
 
+    private float damage; //Damage per shot
     private float frecuency; //Time between shots
     private bool readyToShoot = true;
     private Transform player;
@@ -26,6 +27,7 @@ public class EnemyAttack : MonoBehaviour
 
         //Get the frecuency from EnemyController
         controller = GetComponent<EnemyController>();
+        damage = controller.damage;
         frecuency = controller.frecuency;
     }
 
@@ -51,17 +53,17 @@ public class EnemyAttack : MonoBehaviour
         float startRotation = facingRotation + bulletSpread / 2f;
 
         //Calculate the angle increase between bullets
-        float angleIncrease = bulletSpread / ((float) numberOfBullets);
+        float angleIncrease = bulletSpread / ((float) bulletsPerShot);
 
         //Instantiate the bullets
-        for (int i = 0; i < numberOfBullets; i++)
+        for (int i = 0; i < bulletsPerShot; i++)
         {
             //Calculate the rotation of the bullet
             float rotation = startRotation - angleIncrease * i;
             GameObject currentBullet = Instantiate(bullet, attackPoint.position, Quaternion.Euler(0f, rotation, 0f));
 
             //Set the damage and force of the bullet
-            currentBullet.GetComponent<BulletController>().damage = controller.damage;
+            currentBullet.GetComponent<BulletController>().damage = damage;
             currentBullet.GetComponent<Rigidbody>().AddForce(currentBullet.transform.forward * shootForce, ForceMode.Impulse);
         }
 

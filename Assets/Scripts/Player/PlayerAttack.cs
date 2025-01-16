@@ -5,9 +5,12 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private GameObject bullet;
     [SerializeField] private Transform attackPoint;
     [SerializeField] private float shootForce = 10f;
+    [SerializeField] private float angleBetweenBullets = 10f;
 
     private float damage; //Damage per shot
     private float frecuency; //Time between shots
+    private int bulletsPerShot;
+    private float bulletSpread;
     private bool readyToShoot = true;
     private PlayerController controller;
     private GameState gameState;
@@ -21,8 +24,6 @@ public class PlayerAttack : MonoBehaviour
     {
         //Get the frecuency from PlayerController
         controller = GetComponent<PlayerController>();
-        frecuency = controller.frecuency;
-        damage = controller.damage;
     }
 
     private void Update()
@@ -37,13 +38,29 @@ public class PlayerAttack : MonoBehaviour
     private void Shoot()
     {
         readyToShoot = false;
+        frecuency = controller.attackFrecuency;
+        damage = controller.damage;
+        bulletsPerShot = controller.bulletsPerShot;
+        bulletSpread = angleBetweenBullets * ((float)bulletsPerShot - 1);
 
-        //Instantiate the bullet
-        GameObject currentBullet = Instantiate(bullet, attackPoint.position, transform.rotation);
+        //Calculate the start rotation of the bullets
+        float facingRotation = transform.eulerAngles.y;
+        float startRotation = facingRotation + bulletSpread / 2f;
 
-        //Set the damage and force of the bullet
-        currentBullet.GetComponent<BulletController>().damage = damage;
-        currentBullet.GetComponent<Rigidbody>().AddForce(transform.forward * shootForce, ForceMode.Impulse);
+        //Calculate the angle increase between bullets
+        float angleIncrease = angleBetweenBullets;
+
+        //Instantiate the bullets
+        for (int i = 0; i < bulletsPerShot; i++)
+        {
+            //Calculate the rotation of the bullet
+            float rotation = startRotation - angleIncrease * i;
+            GameObject currentBullet = Instantiate(bullet, attackPoint.position, Quaternion.Euler(0f, rotation, 0f));
+
+            //Set the damage and force of the bullet
+            currentBullet.GetComponent<BulletController>().damage = damage;
+            currentBullet.GetComponent<Rigidbody>().AddForce(currentBullet.transform.forward * shootForce, ForceMode.Impulse);
+        }
 
         Invoke("ResetShoot", frecuency);
     }

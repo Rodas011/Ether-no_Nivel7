@@ -296,6 +296,7 @@ MonoBehaviour:
   health: 10
   speed: 3
   frecuency: 0.5
+  experienceValue: 25
 --- !u!114 &4560865016856465861
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -308,6 +309,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7516319dfed38a643b8cb97d96297ea4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isShieldActive: 0
 --- !u!114 &-2270609351809320943
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -320,12 +322,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44ed8e2d5d6ec3d4792d00855276b49c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameState: {fileID: 11400000, guid: 021efec6f2dfd54439d732f7f534d779, type: 2}
   bullet: {fileID: 5120939204166949799, guid: 81833138531454943a207b0c11f65e1b, type: 3}
   attackPoint: {fileID: 9129271464031723485}
   shootForce: 10
   attackRange: 10
-  numberOfBullets: 1
+  bulletsPerShot: 1
   bulletSpread: 0
 --- !u!114 &1992162234337095879
 MonoBehaviour:
@@ -339,7 +340,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ac6a66a8b845b64a8578d3943d866b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameState: {fileID: 11400000, guid: 021efec6f2dfd54439d732f7f534d779, type: 2}
   chaseRange: 1000
 --- !u!195 &2730539050849539741
 NavMeshAgent:
@@ -388,7 +388,7 @@ Transform:
   m_GameObject: {fileID: 6591926467208164790}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
