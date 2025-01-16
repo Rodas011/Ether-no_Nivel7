@@ -4,6 +4,7 @@ public class GameEventManager : MonoBehaviour
 {
     [SerializeField] private GameState gameState;
     [SerializeField] private UIManager uiManager;
+    [SerializeField] private ProgressionManager ProgressionManager;
 
     private void Awake()
     {
@@ -16,6 +17,14 @@ public class GameEventManager : MonoBehaviour
         GameEvents.current.OnFinnish += HandleFinnish;
         GameEvents.current.OnPause += HandlePause;
         GameEvents.current.OnObjectDied += HandleObjectDied;
+    }
+
+    private void OnDestroy()
+    {
+        GameEvents.current.OnGameOver -= HandleGameOver;
+        GameEvents.current.OnFinnish -= HandleFinnish;
+        GameEvents.current.OnPause -= HandlePause;
+        GameEvents.current.OnObjectDied -= HandleObjectDied;
     }
 
     private void HandleGameOver()
@@ -54,6 +63,7 @@ public class GameEventManager : MonoBehaviour
 
     private void HandleObjectDied(GameObject obj)
     {
+        Debug.Log($"Handling {obj.name} death");
         if (obj.CompareTag("Player"))
         {
             HandleGameOver();
@@ -65,6 +75,11 @@ public class GameEventManager : MonoBehaviour
         }
         else
         {
+            if (obj.TryGetComponent<EnemyController>(out var enemyController))
+            {
+                ProgressionManager.AddExperience(enemyController.experienceValue);
+                Debug.Log($"Granted {enemyController.experienceValue} experience for defeating {obj.name}");
+            }
             Destroy(obj);
         }
     }

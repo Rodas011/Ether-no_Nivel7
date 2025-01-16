@@ -10,16 +10,5 @@ public class EnemyController : MonoBehaviour
     public float health = 10f;
     public float speed = 3f;
     public float frecuency = 0.5f;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public float experienceValue = 25f;
 }
