@@ -34,7 +34,6 @@ public class SimpleSpawner : MonoBehaviour
         }
 
         spawnFrequency = Mathf.Max(0.5f, 5f - (Timer.current.time) * 0.05f); // Asure that the spawn frequency is never lower than 0.5
-        Debug.Log("Spawn frequency: " + spawnFrequency);
 
         spawnWait += Time.deltaTime;
     }

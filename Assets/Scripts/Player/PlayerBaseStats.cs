@@ -9,5 +9,6 @@ public class PlayerBaseStats : ScriptableObject
     public float defense = 1f;
     public float health = 100f;
     public float speed = 5f;
-    public float frecuency = 0.5f;
+    public float attackFrecuency = 0.5f;
+    public float shieldFrecuency = 5f;
 }

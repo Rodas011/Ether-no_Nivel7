@@ -107,6 +107,7 @@ MonoBehaviour:
   health: 100
   speed: 2
   frecuency: 2
+  experienceValue: 25
 --- !u!114 &890185343037108822
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -131,12 +132,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44ed8e2d5d6ec3d4792d00855276b49c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameState: {fileID: 11400000, guid: 021efec6f2dfd54439d732f7f534d779, type: 2}
   bullet: {fileID: 5120939204166949799, guid: 81833138531454943a207b0c11f65e1b, type: 3}
   attackPoint: {fileID: 8134298585928161735}
   shootForce: 10
   attackRange: 20
-  numberOfBullets: 14
+  bulletsPerShot: 14
   bulletSpread: 360
 --- !u!114 &7733360060188646398
 MonoBehaviour:
@@ -150,7 +150,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ac6a66a8b845b64a8578d3943d866b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameState: {fileID: 11400000, guid: 021efec6f2dfd54439d732f7f534d779, type: 2}
   chaseRange: 1000
 --- !u!195 &1151400173699578422
 NavMeshAgent:
@@ -166,7 +165,7 @@ NavMeshAgent:
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 2
+  m_StoppingDistance: 3
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1

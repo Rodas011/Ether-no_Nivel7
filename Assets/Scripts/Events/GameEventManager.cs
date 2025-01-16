@@ -63,7 +63,6 @@ public class GameEventManager : MonoBehaviour
 
     private void HandleObjectDied(GameObject obj)
     {
-        Debug.Log($"Handling {obj.name} death");
         if (obj.CompareTag("Player"))
         {
             HandleGameOver();
@@ -78,7 +77,6 @@ public class GameEventManager : MonoBehaviour
             if (obj.TryGetComponent<EnemyController>(out var enemyController))
             {
                 ProgressionManager.AddExperience(enemyController.experienceValue);
-                Debug.Log($"Granted {enemyController.experienceValue} experience for defeating {obj.name}");
             }
             Destroy(obj);
         }
