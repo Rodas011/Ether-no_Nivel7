@@ -14,10 +14,16 @@ public class SimpleSpawner : MonoBehaviour
     private int enemyNumber = 0;
     private float spawnFrequency = 0f; // Frecuency of enemy spawn
     private float spawnWait = 0f;    // Internal counter for spawn frequency
+    private bool isReady = false;
+
+    private void Start()
+    {
+        Invoke("SetReady", 2f);
+    }
 
     private void Update()
     {
-        if(gameState.isGameOver || gameState.isPaused)
+        if(!isReady || gameState.isGameOver || gameState.isPaused)
         {
             return;
         }
@@ -47,10 +53,18 @@ public class SimpleSpawner : MonoBehaviour
             Vector3 offset = new Vector3(randomX, spawnPoint.position.y, randomZ);
             Vector3 spawnPosition = spawnPoint.position + offset;
 
-            GameObject currentEnemy = Instantiate(enemy, spawnPosition, Quaternion.identity);
-
-            enemyNumber++;
-            currentEnemy.name = "Enemy" + enemyNumber;
+            if (IsPointOnNavMesh(spawnPoint.position, out Vector3 validPosition))
+            {
+                GameObject currentEnemy = Instantiate(enemy, spawnPosition, Quaternion.identity);
+                enemyNumber++;
+                currentEnemy.name = "Enemy" + enemyNumber;
+            }
+            else
+            {
+                GameObject currentEnemy = Instantiate(enemy, new Vector3(0,1,0), Quaternion.identity);
+                enemyNumber++;
+                Debug.Log($"Invalid spawn point at {spawnPoint.position}, enemy spawned at origin");
+            }
         }
     }
 
@@ -58,5 +72,23 @@ public class SimpleSpawner : MonoBehaviour
     {
         GameObject currentBoss = Instantiate(boss, bossSpawnPoint.position, Quaternion.identity);
         currentBoss.name = "Boss";
+    }
+
+    private bool IsPointOnNavMesh(Vector3 point, out Vector3 validPoint, float maxDistance = 2f)
+    {
+        UnityEngine.AI.NavMeshHit hit;
+        if (UnityEngine.AI.NavMesh.SamplePosition(point, out hit, maxDistance, UnityEngine.AI.NavMesh.AllAreas))
+        {
+            validPoint = hit.position; // Punto ajustado al NavMesh
+            return true;
+        }
+
+        validPoint = Vector3.zero; // Si no se encuentra un punto v�lido
+        return false;
+    }
+
+    private void SetReady()
+    {
+        isReady = true;
     }
 }
