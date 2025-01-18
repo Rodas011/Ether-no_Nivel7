@@ -145,3 +145,4 @@ MonoBehaviour:
   minRandomRange: 1
   maxRandomRange: 2
   maxDistanceForValidation: 3
+  spawnFrequencyWithBoss: 10
