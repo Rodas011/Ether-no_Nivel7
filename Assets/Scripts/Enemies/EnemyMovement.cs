@@ -14,6 +14,7 @@ public class EnemyMovement : MonoBehaviour
     private bool playerInChaseRange;
     private NavMeshAgent agent;
     private EnemyController controller;
+    private float stoppingDistance;
 
     private void Awake()
     {
@@ -28,6 +29,7 @@ public class EnemyMovement : MonoBehaviour
         //Set the speed of the NavMeshAgent
         agent = GetComponent<NavMeshAgent>();
         agent.speed = speed;
+        stoppingDistance = agent.stoppingDistance;
     }
 
     private void Update()
@@ -44,6 +46,12 @@ public class EnemyMovement : MonoBehaviour
     private void Chase()
     {
         transform.LookAt(new Vector3(player.position.x, transform.position.y, player.position.z));
-        agent.SetDestination(player.position);
+
+        float distance = Vector3.Distance(transform.position, player.position);
+        if(distance > stoppingDistance)
+        {
+            agent.SetDestination(player.position);
+        }
+        
     }
 }

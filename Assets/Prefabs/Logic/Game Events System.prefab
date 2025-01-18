@@ -138,5 +138,10 @@ MonoBehaviour:
   spawnPoints:
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   bossSpawnPoint: {fileID: 0}
-  timeBossSpawn: 60
+  timeBossSpawn: 30
+  minRandomRange: 1
+  maxRandomRange: 2
+  maxDistanceForValidation: 3

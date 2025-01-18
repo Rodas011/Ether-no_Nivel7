@@ -10,7 +10,11 @@ public class SimpleSpawner : MonoBehaviour
     [SerializeField] private Transform[] spawnPoints;
     [SerializeField] private Transform bossSpawnPoint;
     [SerializeField] private float timeBossSpawn = 60f;
+    [SerializeField] private float minRandomRange = 0.5f;
+    [SerializeField] private float maxRandomRange = 1f;
+    [SerializeField] private float maxDistanceForValidation = 3f;
 
+    private Transform player;
     private int enemyNumber = 0;
     private float spawnFrequency = 0f; // Frecuency of enemy spawn
     private float spawnWait = 0f;    // Internal counter for spawn frequency
@@ -18,6 +22,7 @@ public class SimpleSpawner : MonoBehaviour
 
     private void Start()
     {
+        player = GameObject.FindWithTag("Player").transform;
         Invoke("SetReady", 2f);
     }
 
@@ -48,23 +53,15 @@ public class SimpleSpawner : MonoBehaviour
     {
         foreach (Transform spawnPoint in spawnPoints)
         {
-            float randomX = Random.Range(1f, 2f);
-            float randomZ = Random.Range(1f, 2f);
+            float randomX = Random.Range(minRandomRange, maxRandomRange);
+            float randomZ = Random.Range(minRandomRange, maxRandomRange);
             Vector3 offset = new Vector3(randomX, spawnPoint.position.y, randomZ);
             Vector3 spawnPosition = spawnPoint.position + offset;
 
-            if (IsPointOnNavMesh(spawnPoint.position, out Vector3 validPosition))
-            {
-                GameObject currentEnemy = Instantiate(enemy, spawnPosition, Quaternion.identity);
-                enemyNumber++;
-                currentEnemy.name = "Enemy" + enemyNumber;
-            }
-            else
-            {
-                GameObject currentEnemy = Instantiate(enemy, new Vector3(0,1,0), Quaternion.identity);
-                enemyNumber++;
-                Debug.Log($"Invalid spawn point at {spawnPoint.position}, enemy spawned at origin");
-            }
+            MakeAValidPoint(ref spawnPosition, maxDistanceForValidation);
+            GameObject currentEnemy = Instantiate(enemy, spawnPosition, Quaternion.identity);
+            enemyNumber++;
+            currentEnemy.name = "Enemy" + enemyNumber;
         }
     }
 
@@ -74,17 +71,21 @@ public class SimpleSpawner : MonoBehaviour
         currentBoss.name = "Boss";
     }
 
-    private bool IsPointOnNavMesh(Vector3 point, out Vector3 validPoint, float maxDistance = 2f)
+    private void MakeAValidPoint(ref Vector3 point, float maxDistance)
     {
+        Vector3 originalPoint = point;
         UnityEngine.AI.NavMeshHit hit;
         if (UnityEngine.AI.NavMesh.SamplePosition(point, out hit, maxDistance, UnityEngine.AI.NavMesh.AllAreas))
         {
-            validPoint = hit.position; // Punto ajustado al NavMesh
-            return true;
+            point = hit.position;
+            return;
         }
-
-        validPoint = Vector3.zero; // Si no se encuentra un punto v�lido
-        return false;
+        point = new Vector3(20, 0, 0);
+        if (player.position.x > 0)
+        {
+            point = new Vector3(-20, 0, 0);
+        }
+        Debug.Log($"Invalid spawn point at {originalPoint}, enemy spawned at default points");
     }
 
     private void SetReady()

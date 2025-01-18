@@ -45,9 +45,7 @@ public class EnemyAttack : MonoBehaviour
     private void Shoot()
     {
         readyToShoot = false;
-
-        transform.LookAt(new Vector3(player.position.x, transform.position.y, player.position.z));
-
+        
         //Calculate the start rotation of the bullets
         float facingRotation = transform.eulerAngles.y;
         float startRotation = facingRotation + bulletSpread / 2f;
