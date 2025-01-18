@@ -13,6 +13,7 @@ public class SimpleSpawner : MonoBehaviour
     [SerializeField] private float minRandomRange = 0.5f;
     [SerializeField] private float maxRandomRange = 1f;
     [SerializeField] private float maxDistanceForValidation = 3f;
+    [SerializeField] private float spawnFrequencyWithBoss = 10f;
 
     private Transform player;
     private int enemyNumber = 0;
@@ -36,6 +37,7 @@ public class SimpleSpawner : MonoBehaviour
         if (Timer.current.time > timeBossSpawn && GameObject.FindWithTag("Boss") == null)
         {
             SpawnBoss();
+            InvokeRepeating("SpawnEnemies", 0f, spawnFrequencyWithBoss);
         }
 
         if (spawnWait >= spawnFrequency && GameObject.FindWithTag("Boss") == null)

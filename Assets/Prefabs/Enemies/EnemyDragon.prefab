@@ -106,10 +106,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 10
   defense: 1
-  health: 100
-  speed: 2
-  frecuency: 2
-  experienceValue: 25
+  health: 200
+  speed: 3
+  frecuency: 1
+  experienceValue: 0
 --- !u!114 &890185343037108822
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -122,6 +122,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7516319dfed38a643b8cb97d96297ea4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 0
+  currentHealth: 0
   isShieldActive: 0
 --- !u!114 &807301508294859486
 MonoBehaviour:
@@ -139,7 +141,7 @@ MonoBehaviour:
   attackPoint: {fileID: 8134298585928161735}
   shootForce: 10
   attackRange: 20
-  bulletsPerShot: 14
+  bulletsPerShot: 24
   bulletSpread: 360
 --- !u!114 &7733360060188646398
 MonoBehaviour:
