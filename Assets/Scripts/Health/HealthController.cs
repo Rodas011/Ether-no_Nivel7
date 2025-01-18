@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class HealthController : MonoBehaviour
 {
-    private float maxHealth;
-    private float currentHealth;
+    [HideInInspector] public float maxHealth;
+    [HideInInspector] public float currentHealth;
     private float defense;
     public bool isShieldActive;
     private PlayerController controller;

@@ -6,9 +6,9 @@ public class PlayerDefense : MonoBehaviour
 {
     [SerializeField] private GameObject shield;
 
-    private float shieldDuration;
-    private float shieldFrecuency;
-    private bool readyToDefense = true;
+    [HideInInspector] public float shieldDuration;
+    [HideInInspector] public float shieldFrecuency;
+    [HideInInspector] public bool readyToDefense;
     private PlayerController controller;
     private GameState gameState;
 
@@ -17,10 +17,13 @@ public class PlayerDefense : MonoBehaviour
         this.gameState = gameState;
     }
 
-    private void Awake()
+    private void Start()
     {
         controller = GetComponent<PlayerController>();
         shield.SetActive(false);
+        shieldDuration = controller.shieldDuration;
+        shieldFrecuency = controller.shieldFrecuency;
+        readyToDefense = true;
     }
 
     private void Update()
