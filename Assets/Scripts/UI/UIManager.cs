@@ -5,6 +5,7 @@ public class UIManager : MonoBehaviour
     private GameObject gameOverCanvas;
     private GameObject finishCanvas;
     private GameObject pauseCanvas;
+    private GameObject tempUpgradesCanvas;
 
     private void Awake()
     {
@@ -38,6 +39,16 @@ public class UIManager : MonoBehaviour
         {
             Debug.LogError("Canvas for Pause not found");
         }
+
+        if (GameObject.Find("CanvasTempUpgrades"))
+        {
+            tempUpgradesCanvas = GameObject.Find("CanvasTempUpgrades");
+            tempUpgradesCanvas.SetActive(false);
+        }
+        else
+        {
+            Debug.LogError("Canvas for Temp Upgrades not found");
+        }
     }
 
     public void ShowGameOverCanvas(bool show)
@@ -53,5 +64,10 @@ public class UIManager : MonoBehaviour
     public void ShowPauseCanvas(bool show)
     {
         if (pauseCanvas) pauseCanvas.SetActive(show);
+    }
+
+    public void ShowTempUpgradesCanvas(bool show)
+    {
+        if (tempUpgradesCanvas) tempUpgradesCanvas.SetActive(show);
     }
 }

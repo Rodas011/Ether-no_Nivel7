@@ -17,18 +17,18 @@ public class ProgressionManager : MonoBehaviour
 
         while (currentExperience >= experienceToNextStage)
         {
-            LevelUp();
+            StageUp();
         }
     }
 
-    private void LevelUp()
+    private void StageUp()
     {
         currentExperience -= experienceToNextStage;
         currentStage++;
         experienceToNextStage *= experienceGrowthFactor;
 
         Debug.Log($"Leveled up! New stage: {currentStage}");
-        //UpgradePlayerStats();
+        GameEvents.current.StageUp();
     }
 
 }

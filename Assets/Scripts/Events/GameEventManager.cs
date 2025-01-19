@@ -17,6 +17,7 @@ public class GameEventManager : MonoBehaviour
         GameEvents.current.OnFinnish += HandleFinnish;
         GameEvents.current.OnPause += HandlePause;
         GameEvents.current.OnObjectDied += HandleObjectDied;
+        GameEvents.current.OnStageUp += HandleStageUp;
     }
 
     private void OnDestroy()
@@ -25,6 +26,7 @@ public class GameEventManager : MonoBehaviour
         GameEvents.current.OnFinnish -= HandleFinnish;
         GameEvents.current.OnPause -= HandlePause;
         GameEvents.current.OnObjectDied -= HandleObjectDied;
+        GameEvents.current.OnStageUp -= HandleStageUp;
     }
 
     private void HandleGameOver()
@@ -81,4 +83,12 @@ public class GameEventManager : MonoBehaviour
             Destroy(obj);
         }
     }
+
+    private void HandleStageUp()
+    {
+        gameState.isPaused = true;
+        Time.timeScale = 0f;
+        uiManager.ShowTempUpgradesCanvas(true);
+    }
+
 }

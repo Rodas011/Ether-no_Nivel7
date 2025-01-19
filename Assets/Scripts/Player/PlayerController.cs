@@ -50,4 +50,33 @@ public class PlayerController : MonoBehaviour
         playerDefense.SetDependencies(gameState);
     }
 
+    public void ModifyAtribute(string attribute, float value)
+    {
+        switch (attribute)
+        {
+            case "damage":
+                damage += value;
+                Debug.Log($"Damage increased by {value}. New damage: {damage}");
+                break;
+
+            case "defense":
+                defense += value;
+                Debug.Log($"Defense increased by {value}. New defense: {defense}");
+                break;
+
+            case "bulletsPerShot":
+                bulletsPerShot += Mathf.RoundToInt(value);
+                Debug.Log($"Bullets per shot increased by {value}. New bullets per shot: {bulletsPerShot}");
+                break;
+
+            case "shieldDuration":
+                shieldDuration += value;
+                Debug.Log($"Shield duration increased by {value}. New shield duration: {shieldDuration}s");
+                break;
+
+            default:
+                Debug.LogWarning($"Unknown attribute: {attribute}");
+                break;
+        }
+    }
 }

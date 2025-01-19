@@ -13,4 +13,14 @@ public class MenuController : MonoBehaviour
     {
         Application.Quit();
     }
+
+    public void ShowCanvas(GameObject canvas)
+    {
+        canvas.SetActive(true);
+    }
+
+    public void HideCanvas(GameObject canvas)
+    {
+        canvas.SetActive(false);
+    }
 }
