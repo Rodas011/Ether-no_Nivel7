@@ -55,27 +55,27 @@ public class SpawnManager : MonoBehaviour
 
     IEnumerator SpawnEnemiesGradually()
     {
-        int enemigosPorRonda = round * 2; // Número total de enemigos a generar en esta ronda
+        int objEnemyPerRound = round * 2; // Número total de enemigos a generar en esta ronda
         int enemigosGenerados = 0;
 
         roundOver = false;
         
-        while (enemigosGenerados < enemigosPorRonda)
+        while (enemigosGenerados < objEnemyPerRound)
         {
             foreach (Transform spawnPoint in spawnPoints)
             {
-                if (enemigosGenerados >= enemigosPorRonda) break;
+                if (enemigosGenerados >= objEnemyPerRound) break;
 
                 // Generar un desplazamiento aleatorio en X y Z
-                float numeroRandomX = Random.Range(0f, 1f);
-                float numeroRandomZ = Random.Range(0f, 1f);
-                Vector3 offset = new Vector3(numeroRandomX, spawnPoint.position.y, numeroRandomZ);
+                float numberRandomX = Random.Range(0f, 1f);
+                float numberRandomZ = Random.Range(0f, 1f);
+                Vector3 offset = new Vector3(numberRandomX, spawnPoint.position.y, numberRandomZ);
                 Vector3 spawnPosition = spawnPoint.position + offset;
 
                 // Instanciar enemigo
-                GameObject enemigo = Instantiate(enemy, spawnPosition, Quaternion.identity);
-                enemigo.name = "Enemigo Ronda " + round + " No " + (enemigosGenerados + 1);
-                enemigo.transform.SetParent(spawnedEnemies.transform);
+                GameObject objEnemigo = Instantiate(enemy, spawnPosition, Quaternion.identity);
+                objEnemigo.name = "Enemigo Ronda " + round + " No " + (enemigosGenerados + 1);
+                objEnemigo.transform.SetParent(spawnedEnemies.transform);
 
                 enemigosGenerados++; // Incrementar el contador de enemigos generados
 
@@ -91,14 +91,14 @@ public class SpawnManager : MonoBehaviour
 
         foreach (Transform spawnPoint in spawnPoints)
         {
-            int enemigosPorRonda = round * 2;
+            int objEnemyPerRound = round * 2;
 
             for (int indiceEnemigo = 0; indiceEnemigo < spawnPoint.childCount; indiceEnemigo++ )
             {
                 GameObject enemigoSpawneados = spawnPoint.GetChild(indiceEnemigo). gameObject;
             }
 
-            for (int numero = 1; numero <= enemigosPorRonda; numero++)
+            for (int numero = 1; numero <= objEnemyPerRound; numero++)
             {
 
                 float numeroRandomX = Random.Range(0f, 1f);
