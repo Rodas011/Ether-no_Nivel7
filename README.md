@@ -2,12 +2,8 @@
 Proyecto para el curso de Desarrollo de Videojuegos de Academy By Polygonus
 
 ## Integrantes
-- Juan Manuel Cadavid Salazar - 	juanmanuel970212@gmail.com
-- Samuel Andrés Sobrino Hernández -	samuelsobrino96@gmail.com
-- Juan David Vargas Penagos -	davidvargas.jdvp@gmail.com
-- Sebastián Valencia Piedrahita -	sevex90@gmail.com
-- Santiago Acevedo Diaz -	tiago.sak.d@gmail.com
 - Maira Daniela Rodas Álvarez -	mrodas011@gmail.com
+- Juan Manuel Cadavid Salazar - 	juanmanuel970212@gmail.com
 
 ## Convenciones
 - Todos los nombres de los commits, de los archivos y del código en general deben estar en inglés.
