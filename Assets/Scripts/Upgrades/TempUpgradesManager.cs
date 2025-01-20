@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class TempUpgradesManager : MonoBehaviour
@@ -7,12 +8,16 @@ public class TempUpgradesManager : MonoBehaviour
     public TextMeshProUGUI upgrade1Description;
     public TextMeshProUGUI upgrade2Name;
     public TextMeshProUGUI upgrade2Description;
+    public Button upgrade1Button;
+    public Button upgrade2Button;
 
     [SerializeField] private TemporalUpgrades temporalUpgrades;
 
     private TempUpgradeData upgrade1;
     private TempUpgradeData upgrade2;
     private PlayerController playerController;
+    private float timerBeforeClickable;
+    private float waitBeforeClickable;
 
     private void Start()
     {
@@ -25,6 +30,11 @@ public class TempUpgradesManager : MonoBehaviour
 
     public void OnEnable()
     {
+        timerBeforeClickable = 0f;
+        waitBeforeClickable = 1f;
+        upgrade1Button.interactable = false;
+        upgrade2Button.interactable = false;
+
         upgrade1 = temporalUpgrades.GetRandomUpgrade();
         upgrade2 = temporalUpgrades.GetRandomUpgrade();
 
@@ -45,6 +55,19 @@ public class TempUpgradesManager : MonoBehaviour
         {
             upgrade2Name.text = upgrade2.name;
             upgrade2Description.text = upgrade2.description;
+        }
+    }
+
+    private void Update()
+    {
+        if (timerBeforeClickable < waitBeforeClickable)
+        {
+            timerBeforeClickable += Time.unscaledDeltaTime;
+        }
+        else
+        {
+            upgrade1Button.interactable = true;
+            upgrade2Button.interactable = true;
         }
     }
 

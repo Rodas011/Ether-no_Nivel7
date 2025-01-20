@@ -17,6 +17,7 @@ public class PlayerBaseStats : ScriptableObject
     {
         ResetStats();
         faith = 0;
+        Debug.Log("Player stats enabled");
     }
 
     public void ResetStats()
@@ -26,7 +27,7 @@ public class PlayerBaseStats : ScriptableObject
         health = 100f;
         speed = 5f;
         attackFrequency = 0.5f;
-        shieldFrequency = 5f;
+        shieldFrequency = 4f;
     }
 
 }

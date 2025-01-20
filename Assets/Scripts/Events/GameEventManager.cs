@@ -3,6 +3,7 @@ using UnityEngine;
 public class GameEventManager : MonoBehaviour
 {
     [SerializeField] private GameState gameState;
+    [SerializeField] private Upgrades upgrades;
     [SerializeField] private UIManager uiManager;
     [SerializeField] private ProgressionManager progressionManager;
     [SerializeField] private FaithManager faithManager;

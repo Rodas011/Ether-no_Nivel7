@@ -693,6 +693,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CanvasUpgrades
       objectReference: {fileID: 0}
+    - target: {fileID: 7529574073390026478, guid: 3b5f94d81fc837f4f996d76324b98572,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8528730102410239059, guid: 3b5f94d81fc837f4f996d76324b98572,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument

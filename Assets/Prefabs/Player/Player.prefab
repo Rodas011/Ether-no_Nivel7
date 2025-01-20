@@ -122,6 +122,7 @@ GameObject:
   - component: {fileID: 3660196335579803840}
   - component: {fileID: 8607646783256002210}
   - component: {fileID: 998501354085217820}
+  - component: {fileID: 2527809590287225025}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -213,10 +214,10 @@ MonoBehaviour:
   baseStats: {fileID: 11400000, guid: ebc113f62662e3e43bd9a35a2d8e5d77, type: 2}
   damage: 10
   defense: 1
-  health: 1000
+  health: 100
   speed: 5
-  attackFrecuency: 0.5
-  shieldFrecuency: 5
+  attackFrequency: 0
+  shieldFrequency: 0
   bulletsPerShot: 1
   shieldDuration: 1
   isShieldActive: 0
@@ -236,6 +237,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7516319dfed38a643b8cb97d96297ea4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 0
+  currentHealth: 0
   isShieldActive: 0
 --- !u!114 &5306623377383360685
 MonoBehaviour:
@@ -278,6 +281,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shield: {fileID: 4497722890465986246}
+  shieldDuration: 0
+  shieldFrecuency: 0
+  readyToDefense: 1
 --- !u!114 &998501354085217820
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -291,6 +297,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameState: {fileID: 11400000, guid: 021efec6f2dfd54439d732f7f534d779, type: 2}
+--- !u!114 &2527809590287225025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2006918686798495585}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c398db34dfbca0d4181237fabe67dd0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitColor: {r: 1, g: 0, b: 0, a: 1}
+  shieldColor: {r: 0, g: 0, b: 1, a: 1}
+  hitDuration: 0.1
+  shieldDuration: 1
 --- !u!1 &4497722890465986246
 GameObject:
   m_ObjectHideFlags: 0

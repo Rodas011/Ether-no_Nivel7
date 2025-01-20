@@ -7,8 +7,8 @@ public class TempUpgradeData
 {
     public string name;
     public string description;
-    public string attribute; // Player's attribute that will be affected.
-    public float value; // Value that will be added to the attribute.
+    public string attribute;
+    public float value;
 }
 
 [CreateAssetMenu(fileName = "TemporalUpgrades", menuName = "Scriptables/TemporalUpgrades")]

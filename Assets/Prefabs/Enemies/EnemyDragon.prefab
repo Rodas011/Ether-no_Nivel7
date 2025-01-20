@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 7733360060188646398}
   - component: {fileID: 1151400173699578422}
   - component: {fileID: 169577964762055116}
+  - component: {fileID: -2847685099407414984}
   m_Layer: 7
   m_Name: EnemyDragon
   m_TagString: Boss
@@ -104,12 +105,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6028ef6da98460c4ba9bc809a22c85a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
+  damage: 25
   defense: 1
-  health: 200
+  health: 1000
   speed: 3
-  frecuency: 1
+  frecuency: 0.8
   experienceValue: 0
+  faithValue: 20
 --- !u!114 &890185343037108822
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -137,7 +139,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44ed8e2d5d6ec3d4792d00855276b49c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 5120939204166949799, guid: 81833138531454943a207b0c11f65e1b, type: 3}
+  bullet: {fileID: 6295860005493188266, guid: ecb8d470ea3fe824391675552b4bae6a, type: 3}
   attackPoint: {fileID: 8134298585928161735}
   shootForce: 10
   attackRange: 20
@@ -190,6 +192,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 562d58f5859974c428384866927b8f1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-2847685099407414984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1136552307637764120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c398db34dfbca0d4181237fabe67dd0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitColor: {r: 1, g: 0, b: 0, a: 1}
+  shieldColor: {r: 0, g: 0, b: 1, a: 1}
+  hitDuration: 0.1
+  shieldDuration: 0.2
 --- !u!1 &1834224811957319027
 GameObject:
   m_ObjectHideFlags: 0
@@ -482,6 +500,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4871733318207474793, guid: 5ec4ab5f16e87f244a198f2a4e942ef3,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5ec4ab5f16e87f244a198f2a4e942ef3,
         type: 3}

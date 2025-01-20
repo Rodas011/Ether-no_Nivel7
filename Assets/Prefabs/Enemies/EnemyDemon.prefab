@@ -205,6 +205,7 @@ GameObject:
   - component: {fileID: 1992162234337095879}
   - component: {fileID: 2730539050849539741}
   - component: {fileID: 1315378736625973214}
+  - component: {fileID: 6175966919833491186}
   m_Layer: 7
   m_Name: EnemyDemon
   m_TagString: Enemy
@@ -267,10 +268,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 10
   defense: 1
-  health: 10
+  health: 30
   speed: 3
   frecuency: 0.5
   experienceValue: 25
+  faithValue: 5
 --- !u!114 &4560865016856465861
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -283,6 +285,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7516319dfed38a643b8cb97d96297ea4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 0
+  currentHealth: 0
   isShieldActive: 0
 --- !u!114 &-2270609351809320943
 MonoBehaviour:
@@ -349,6 +353,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 562d58f5859974c428384866927b8f1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6175966919833491186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5396534246377148172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c398db34dfbca0d4181237fabe67dd0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitColor: {r: 1, g: 0, b: 0, a: 1}
+  hitDuration: 0.1
 --- !u!1 &6591926467208164790
 GameObject:
   m_ObjectHideFlags: 0
