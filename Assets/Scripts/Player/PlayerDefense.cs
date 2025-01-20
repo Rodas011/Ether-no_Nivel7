@@ -45,7 +45,7 @@ public class PlayerDefense : MonoBehaviour
         controller.isShieldActive = true;
         StartCoroutine(DisableShield());
 
-        Invoke("ResetDefense", shieldFrecuency);
+        Invoke("ResetDefense", shieldDuration + shieldFrecuency);
     }
 
     private IEnumerator DisableShield()

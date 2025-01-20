@@ -22,5 +22,6 @@ public class Upgrades : ScriptableObject
         {
             upgrade.level = 0;
         }
+        Debug.Log("Upgrades enabled");
     }
 }

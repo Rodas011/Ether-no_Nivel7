@@ -78,6 +78,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameState: {fileID: 11400000, guid: 021efec6f2dfd54439d732f7f534d779, type: 2}
+  upgrades: {fileID: 11400000, guid: 7b858f55481f5ba4e8c7011e5ed8f5e9, type: 2}
   uiManager: {fileID: 4755384592887788888}
   progressionManager: {fileID: 6508188088540689597}
   faithManager: {fileID: 4704440423535884422}
@@ -156,8 +157,9 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   bossSpawnPoint: {fileID: 0}
-  timeBossSpawn: 30
+  timeBossSpawn: 60
   minRandomRange: 1
   maxRandomRange: 2
   maxDistanceForValidation: 3
+  spawnFrequencyInitial: 10
   spawnFrequencyWithBoss: 10

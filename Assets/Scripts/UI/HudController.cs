@@ -25,7 +25,7 @@ public class HudManager : MonoBehaviour
 
     private GameObject gameSystem;
     private ProgressionManager progressionManager;
-    private SpawnManager spawnManager;
+    //private SpawnManager spawnManager;
     private FaithManager faithManager;
     private HealthController playerHealth;
     private HealthController bossHealth;
@@ -87,7 +87,7 @@ public class HudManager : MonoBehaviour
 
     private void UpdateShield()
     {
-        maxShield = playerDefense.shieldFrecuency;
+        maxShield = playerDefense.shieldDuration + playerDefense.shieldFrecuency;
 
         if (playerDefense.readyToDefense)
         {

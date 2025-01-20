@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SimpleSpawner : MonoBehaviour
+public class SimpleSpawManager : MonoBehaviour
 {
     [SerializeField] private GameState gameState;
     [SerializeField] private GameObject enemy;
@@ -13,6 +13,7 @@ public class SimpleSpawner : MonoBehaviour
     [SerializeField] private float minRandomRange = 0.5f;
     [SerializeField] private float maxRandomRange = 1f;
     [SerializeField] private float maxDistanceForValidation = 3f;
+    [SerializeField] private float spawnFrequencyInitial = 10f;
     [SerializeField] private float spawnFrequencyWithBoss = 10f;
 
     private Transform player;
@@ -34,7 +35,7 @@ public class SimpleSpawner : MonoBehaviour
             return;
         }
 
-        if (Timer.current.time > timeBossSpawn && GameObject.FindWithTag("Boss") == null)
+        if (SimpleTimer.current.time > timeBossSpawn && GameObject.FindWithTag("Boss") == null)
         {
             SpawnBoss();
             InvokeRepeating("SpawnEnemies", 0f, spawnFrequencyWithBoss);
@@ -46,7 +47,7 @@ public class SimpleSpawner : MonoBehaviour
             spawnWait = 0f;
         }
 
-        spawnFrequency = Mathf.Max(0.5f, 5f - (Timer.current.time) * 0.05f); // Asure that the spawn frequency is never lower than 0.5
+        spawnFrequency = Mathf.Max(1f, spawnFrequencyInitial - (SimpleTimer.current.time) * 0.05f); // Asure that the spawn frequency is never lower than 1
 
         spawnWait += Time.deltaTime;
     }
