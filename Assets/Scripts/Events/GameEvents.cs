@@ -8,6 +8,7 @@ public class GameEvents : MonoBehaviour
     public event Action OnFinnish;
     public event Action OnPause;
     public event Action<GameObject> OnObjectDied;
+    public event Action OnStageUp;
 
     private void Awake()
     {
@@ -43,6 +44,14 @@ public class GameEvents : MonoBehaviour
         if (OnObjectDied != null)
         {
             OnObjectDied(obj);
+        }
+    }
+
+    public void StageUp()
+    {
+        if (OnStageUp != null)
+        {
+            OnStageUp();
         }
     }
 }

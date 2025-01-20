@@ -26,6 +26,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!gameState.isPaused)
         {
+            speed = controller.speed;
             UserInput();
         }
     }

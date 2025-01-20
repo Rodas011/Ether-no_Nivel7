@@ -4,7 +4,8 @@ public class GameEventManager : MonoBehaviour
 {
     [SerializeField] private GameState gameState;
     [SerializeField] private UIManager uiManager;
-    [SerializeField] private ProgressionManager ProgressionManager;
+    [SerializeField] private ProgressionManager progressionManager;
+    [SerializeField] private FaithManager faithManager;
 
     private void Awake()
     {
@@ -17,6 +18,7 @@ public class GameEventManager : MonoBehaviour
         GameEvents.current.OnFinnish += HandleFinnish;
         GameEvents.current.OnPause += HandlePause;
         GameEvents.current.OnObjectDied += HandleObjectDied;
+        GameEvents.current.OnStageUp += HandleStageUp;
     }
 
     private void OnDestroy()
@@ -25,6 +27,7 @@ public class GameEventManager : MonoBehaviour
         GameEvents.current.OnFinnish -= HandleFinnish;
         GameEvents.current.OnPause -= HandlePause;
         GameEvents.current.OnObjectDied -= HandleObjectDied;
+        GameEvents.current.OnStageUp -= HandleStageUp;
     }
 
     private void HandleGameOver()
@@ -76,9 +79,18 @@ public class GameEventManager : MonoBehaviour
         {
             if (obj.TryGetComponent<EnemyController>(out var enemyController))
             {
-                ProgressionManager.AddExperience(enemyController.experienceValue);
+                progressionManager.AddExperience(enemyController.experienceValue);
+                faithManager.AddFaith(enemyController.faithValue);
             }
             Destroy(obj);
         }
     }
+
+    private void HandleStageUp()
+    {
+        gameState.isPaused = true;
+        Time.timeScale = 0f;
+        uiManager.ShowTempUpgradesCanvas(true);
+    }
+
 }

@@ -26,7 +26,7 @@ public class HudManager : MonoBehaviour
     private GameObject gameSystem;
     private ProgressionManager progressionManager;
     private SpawnManager spawnManager;
-    //private FaithManager faithManager;
+    private FaithManager faithManager;
     private HealthController playerHealth;
     private HealthController bossHealth;
     private PlayerDefense playerDefense;
@@ -36,7 +36,7 @@ public class HudManager : MonoBehaviour
         gameSystem = GameObject.FindWithTag("GameSystem");
         progressionManager = gameSystem.GetComponent<ProgressionManager>();
         //spawnManager = gameSystem.GetComponent<SpawnManager>();
-        //faithManager = gameSystem.GetComponent<FaithManager>();
+        faithManager = gameSystem.GetComponent<FaithManager>();
         playerHealth = GameObject.FindWithTag("Player").GetComponent<HealthController>();
         playerDefense = GameObject.FindWithTag("Player").GetComponent<PlayerDefense>();
         experienceFill.fillAmount = 0;
@@ -47,7 +47,7 @@ public class HudManager : MonoBehaviour
     {
         UpdateStage();
         //UpdateRound();
-        //UpdateFaith();
+        UpdateFaith();
         UpdateExperience();
         UpdateHealth();
         UpdateShield();
@@ -108,7 +108,7 @@ public class HudManager : MonoBehaviour
 
     private void UpdateFaith()
     {
-        //faithNumber.text = faithManager.faith.ToString();
+        faithNumber.text = faithManager.faith.ToString();
     }
 
     private void UpdateBossHealth()

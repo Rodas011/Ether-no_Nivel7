@@ -22,7 +22,7 @@ public class PlayerDefense : MonoBehaviour
         controller = GetComponent<PlayerController>();
         shield.SetActive(false);
         shieldDuration = controller.shieldDuration;
-        shieldFrecuency = controller.shieldFrecuency;
+        shieldFrecuency = controller.shieldFrequency;
         readyToDefense = true;
     }
 
@@ -39,7 +39,7 @@ public class PlayerDefense : MonoBehaviour
     {
         readyToDefense = false;
         shieldDuration = controller.shieldDuration;
-        shieldFrecuency = controller.shieldFrecuency;
+        shieldFrecuency = controller.shieldFrequency;
 
         shield.SetActive(true);
         controller.isShieldActive = true;
