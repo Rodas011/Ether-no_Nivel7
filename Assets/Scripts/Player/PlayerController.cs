@@ -10,8 +10,8 @@ public class PlayerController : MonoBehaviour
     public float defense;
     public float health;
     public float speed;
-    public float attackFrecuency;
-    public float shieldFrecuency;
+    public float attackFrequency;
+    public float shieldFrequency;
 
     [Header("Player Special Abilities")]
     public int bulletsPerShot = 1;
@@ -33,8 +33,8 @@ public class PlayerController : MonoBehaviour
         defense = baseStats.defense;
         health = baseStats.health;
         speed = baseStats.speed;
-        attackFrecuency = baseStats.attackFrecuency;
-        shieldFrecuency = baseStats.shieldFrecuency;
+        attackFrequency = baseStats.attackFrequency;
+        shieldFrequency = baseStats.shieldFrequency;
     }
 
     private void Start()

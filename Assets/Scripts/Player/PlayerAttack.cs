@@ -38,7 +38,7 @@ public class PlayerAttack : MonoBehaviour
     private void Shoot()
     {
         readyToShoot = false;
-        frecuency = controller.attackFrecuency;
+        frecuency = controller.attackFrequency;
         damage = controller.damage;
         bulletsPerShot = controller.bulletsPerShot;
         bulletSpread = angleBetweenBullets * ((float)bulletsPerShot - 1);

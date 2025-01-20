@@ -16,4 +16,6 @@ MonoBehaviour:
   defense: 1
   health: 100
   speed: 5
-  frecuency: 0.5
+  attackFrequency: 0.5
+  shieldFrequency: 5
+  faith: 0
