@@ -4,7 +4,8 @@ public class GameEventManager : MonoBehaviour
 {
     [SerializeField] private GameState gameState;
     [SerializeField] private UIManager uiManager;
-    [SerializeField] private ProgressionManager ProgressionManager;
+    [SerializeField] private ProgressionManager progressionManager;
+    [SerializeField] private FaithManager faithManager;
 
     private void Awake()
     {
@@ -78,7 +79,8 @@ public class GameEventManager : MonoBehaviour
         {
             if (obj.TryGetComponent<EnemyController>(out var enemyController))
             {
-                ProgressionManager.AddExperience(enemyController.experienceValue);
+                progressionManager.AddExperience(enemyController.experienceValue);
+                faithManager.AddFaith(enemyController.faithValue);
             }
             Destroy(obj);
         }

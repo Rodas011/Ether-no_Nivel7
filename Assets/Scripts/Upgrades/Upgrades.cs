@@ -8,6 +8,7 @@ public class UpgradeData
     public string name;
     public int level;
     public int price;
+    public float value;
 }
 
 [CreateAssetMenu(fileName = "Upgrades", menuName = "Scriptables/Upgrades")]

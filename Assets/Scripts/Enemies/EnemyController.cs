@@ -11,4 +11,5 @@ public class EnemyController : MonoBehaviour
     public float speed = 3f;
     public float frecuency = 0.5f;
     public float experienceValue = 25f;
+    public int faithValue = 5;
 }
