@@ -267,7 +267,7 @@ MonoBehaviour:
   bullet: {fileID: 4330267565062289254, guid: 8212f7a0247cecd4b829cb8cc559b25a, type: 3}
   attackPoint: {fileID: 3341507331856846910}
   shootForce: 10
-  angleBetweenBullets: 10
+  angleBetweenBullets: 20
 --- !u!114 &8607646783256002210
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,12 +1,15 @@
 using UnityEngine;
+using System;
 
 public class HealthController : MonoBehaviour
 {
     [HideInInspector] public float maxHealth;
     [HideInInspector] public float currentHealth;
+    public event Action OnDamageTaken;
     private float defense;
     public bool isShieldActive;
     private PlayerController playerController;
+
 
     //Get the max health from the PlayerController or the EnemyController
     void Awake()
@@ -46,6 +49,7 @@ public class HealthController : MonoBehaviour
             float realDamage = damage / defense;
             currentHealth -= realDamage;
             Debug.Log($"{gameObject.name} has taken {realDamage} damage.");
+            OnDamageTaken?.Invoke();
 
             if (currentHealth <= 0)
             {

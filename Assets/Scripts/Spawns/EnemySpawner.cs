@@ -1,20 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class SimpleSpawManager : MonoBehaviour
+public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] private GameState gameState;
     [SerializeField] private GameObject enemy;
-    [SerializeField] private GameObject boss;
     [SerializeField] private Transform[] spawnPoints;
-    [SerializeField] private Transform bossSpawnPoint;
     [SerializeField] private float timeBossSpawn = 60f;
     [SerializeField] private float minRandomRange = 0.5f;
     [SerializeField] private float maxRandomRange = 1f;
     [SerializeField] private float maxDistanceForValidation = 3f;
     [SerializeField] private float spawnFrequencyInitial = 10f;
     [SerializeField] private float spawnFrequencyWithBoss = 10f;
+    [SerializeField] private float spawnInitialWait = 2f;
 
     private Transform player;
     private int enemyNumber = 0;
@@ -25,7 +22,7 @@ public class SimpleSpawManager : MonoBehaviour
     private void Start()
     {
         player = GameObject.FindWithTag("Player").transform;
-        Invoke("SetReady", 2f);
+        Invoke("SetReady", spawnInitialWait);
     }
 
     private void Update()
@@ -37,7 +34,6 @@ public class SimpleSpawManager : MonoBehaviour
 
         if (SimpleTimer.current.time > timeBossSpawn && GameObject.FindWithTag("Boss") == null)
         {
-            SpawnBoss();
             InvokeRepeating("SpawnEnemies", 0f, spawnFrequencyWithBoss);
         }
 
@@ -66,12 +62,6 @@ public class SimpleSpawManager : MonoBehaviour
             enemyNumber++;
             currentEnemy.name = "Enemy" + enemyNumber;
         }
-    }
-
-    private void SpawnBoss()
-    {
-        GameObject currentBoss = Instantiate(boss, bossSpawnPoint.position, Quaternion.identity);
-        currentBoss.name = "Boss";
     }
 
     private void MakeAValidPoint(ref Vector3 point, float maxDistance)

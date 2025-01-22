@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyAttack : MonoBehaviour
@@ -25,7 +23,7 @@ public class EnemyAttack : MonoBehaviour
         player = GameObject.FindWithTag("Player").transform;
         whatIsPlayer = LayerMask.GetMask("whatIsPlayer");
 
-        //Get the frecuency from EnemyController
+        //Get the damage and frecuency from EnemyController
         controller = GetComponent<EnemyController>();
         damage = controller.damage;
         frecuency = controller.frecuency;

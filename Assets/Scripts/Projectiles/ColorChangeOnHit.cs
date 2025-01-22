@@ -13,6 +13,7 @@ public class ColorChangeOnHit : MonoBehaviour
 
     private PlayerController playerController;
     private PlayerDefense playerDefense;
+    private HealthController healthController;
 
     private bool wasReadyToDefense = false;
 
@@ -23,40 +24,28 @@ public class ColorChangeOnHit : MonoBehaviour
             this.playerController = playerController;
             playerDefense = gameObject.GetComponent<PlayerDefense>();
         }
+
+        healthController = GetComponent<HealthController>();
+        healthController.OnDamageTaken += HandleDamageTaken;
+
         render = GetComponentInChildren<Renderer>();
         originalColor = render.material.color;
     }
 
+    private void OnDestroy()
+    {
+        healthController.OnDamageTaken -= HandleDamageTaken;
+    }
+
     private void Update()
     {
-        //HandleShieldChange();S
+        //HandleShieldChange();
     }
 
-    private void OnTriggerEnter(Collider collision)
+    private void HandleDamageTaken()
     {
-        if (gameObject.CompareTag("Player") && playerController.isShieldActive)
-        {
-            return;
-        }
-        else
-        {
-            string[] validTags = { "Bullet" };
-            if (System.Array.Exists(validTags, tag => collision.CompareTag(tag)))
-            {
-                StartCoroutine(ChangeColor(hitColor));
-            }
-        }
+        StartCoroutine(ChangeColor(hitColor));
     }
-
-    /*
-    private void OnCollisionEnter(Collision collision)
-    {
-        string[] validTags = { "Player", "Enemy", "Boss" };
-        if (System.Array.Exists(validTags, tag => collision.gameObject.CompareTag(tag)))
-        {
-            StartCoroutine(ChangeColor());
-        }
-    }*/
 
     private void HandleShieldChange()
     {
