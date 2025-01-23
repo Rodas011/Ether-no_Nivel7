@@ -25,9 +25,10 @@ public class BulletController : MonoBehaviour
     private void Explode(Collider collision)
     {
         //Logic for giving damage
-        if(collision.GetComponent<HealthController>() != null)
+        var healthController = collision.GetComponent<HealthController>();
+        if (healthController != null)
         {
-            collision.GetComponent<HealthController>().TakeDamage(damage);
+            healthController.TakeDamage(damage);
         }
         else
         {

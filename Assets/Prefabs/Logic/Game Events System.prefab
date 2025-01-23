@@ -17,6 +17,8 @@ GameObject:
   - component: {fileID: 6508188088540689597}
   - component: {fileID: 4704440423535884422}
   - component: {fileID: 2564299530283362639}
+  - component: {fileID: 871949000148729926}
+  - component: {fileID: 4551260194364712864}
   m_Layer: 0
   m_Name: Game Events System
   m_TagString: GameSystem
@@ -150,16 +152,57 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameState: {fileID: 11400000, guid: 021efec6f2dfd54439d732f7f534d779, type: 2}
   enemy: {fileID: 5396534246377148172, guid: 056df9c4aea302545b56c99ea5cee39c, type: 3}
-  boss: {fileID: 1136552307637764120, guid: a049cda90a5305d4abad71554951ab7a, type: 3}
   spawnPoints:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  bossSpawnPoint: {fileID: 0}
   timeBossSpawn: 60
   minRandomRange: 1
   maxRandomRange: 2
   maxDistanceForValidation: 3
   spawnFrequencyInitial: 10
   spawnFrequencyWithBoss: 10
+  spawnInitialWait: 7
+--- !u!114 &871949000148729926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8244816245191461722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a7746e6dd396dc4ba980acc60a03e8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameState: {fileID: 11400000, guid: 021efec6f2dfd54439d732f7f534d779, type: 2}
+  enemy: {fileID: 3089601766824955615, guid: ae2140577f442794bb5958c30ba7a67e, type: 3}
+  spawnPoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  timeBossSpawn: 60
+  minRandomRange: 1
+  maxRandomRange: 2
+  maxDistanceForValidation: 3
+  spawnFrequencyInitial: 10
+  spawnFrequencyWithBoss: 10
+  spawnInitialWait: 2
+--- !u!114 &4551260194364712864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8244816245191461722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30fb001723435bb47bdff214bd903427, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameState: {fileID: 11400000, guid: 021efec6f2dfd54439d732f7f534d779, type: 2}
+  boss: {fileID: 1136552307637764120, guid: a049cda90a5305d4abad71554951ab7a, type: 3}
+  bossSpawnPoint: {fileID: 0}
+  timeBossSpawn: 60
