@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 2564299530283362639}
   - component: {fileID: 871949000148729926}
   - component: {fileID: 4551260194364712864}
+  - component: {fileID: 3409328972959365687}
   m_Layer: 0
   m_Name: Game Events System
   m_TagString: GameSystem
@@ -81,9 +82,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameState: {fileID: 11400000, guid: 021efec6f2dfd54439d732f7f534d779, type: 2}
   upgrades: {fileID: 11400000, guid: 7b858f55481f5ba4e8c7011e5ed8f5e9, type: 2}
-  uiManager: {fileID: 4755384592887788888}
-  progressionManager: {fileID: 6508188088540689597}
-  faithManager: {fileID: 4704440423535884422}
 --- !u!114 &1005809032544208007
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -206,3 +204,21 @@ MonoBehaviour:
   boss: {fileID: 1136552307637764120, guid: a049cda90a5305d4abad71554951ab7a, type: 3}
   bossSpawnPoint: {fileID: 0}
   timeBossSpawn: 60
+--- !u!114 &3409328972959365687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8244816245191461722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e5a6b29c0994f94e846221d7fb7eb35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthItem1Prefab: {fileID: 2567613424519926447, guid: e029f8e021194de4f938bc83452daacb,
+    type: 3}
+  healthItem2Prefab: {fileID: 3272799848643719425, guid: dfafe2099e9382347ae45f51692563af,
+    type: 3}
+  healthItem1DropChance: 0.1
+  healthItem2DropChance: 0.3
