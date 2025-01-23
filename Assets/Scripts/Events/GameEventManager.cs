@@ -4,13 +4,19 @@ public class GameEventManager : MonoBehaviour
 {
     [SerializeField] private GameState gameState;
     [SerializeField] private Upgrades upgrades;
-    [SerializeField] private UIManager uiManager;
-    [SerializeField] private ProgressionManager progressionManager;
-    [SerializeField] private FaithManager faithManager;
+    private UIManager uiManager;
+    private ProgressionManager progressionManager;
+    private FaithManager faithManager;
+    private DropsManager dropsManager;
+
 
     private void Awake()
     {
         gameState.Reset();
+        uiManager = this.GetComponent<UIManager>();
+        progressionManager = this.GetComponent<ProgressionManager>();
+        faithManager = this.GetComponent<FaithManager>();
+        dropsManager = this.GetComponent<DropsManager>();
     }
 
     private void Start()
@@ -82,6 +88,7 @@ public class GameEventManager : MonoBehaviour
             {
                 progressionManager.AddExperience(enemyController.experienceValue);
                 faithManager.AddFaith(enemyController.faithValue);
+                dropsManager.DropHealthItem(obj.transform.position);
             }
             Destroy(obj);
         }

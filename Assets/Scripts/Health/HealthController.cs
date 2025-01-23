@@ -33,6 +33,12 @@ public class HealthController : MonoBehaviour
         currentHealth = maxHealth;
     }
 
+    public void Heal(float amount)
+    {
+        currentHealth = Mathf.Min(currentHealth + amount, maxHealth);
+        Debug.Log($"Player healed by {amount}. Current health: {currentHealth}");
+    }
+
     public void TakeDamage(float damage)
     {
         if(gameObject.CompareTag("Player") && playerController.isShieldActive)
