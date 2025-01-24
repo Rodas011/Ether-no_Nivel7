@@ -16,24 +16,24 @@ MonoBehaviour:
   - name: Damage
     level: 0
     price: 100
-    value: 10
+    value: 1.5
   - name: Defense
     level: 0
     price: 100
-    value: 1
+    value: 1.5
   - name: Health
     level: 0
     price: 100
-    value: 50
+    value: 1.5
   - name: Speed
-    level: 3
+    level: 0
     price: 100
-    value: 1
+    value: 1.15
   - name: AttackFreq
     level: 0
     price: 100
-    value: 0.1
+    value: 0.8
   - name: ShieldFreq
     level: 0
     price: 100
-    value: 1
+    value: 0.8

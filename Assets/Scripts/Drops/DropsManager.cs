@@ -11,12 +11,11 @@ public class DropsManager : MonoBehaviour
 
     public void DropHealthItem(Vector3 position)
     {
-        float random = Random.Range(0f, 1f);
-        if (random <= healthItem1DropChance)
+        if (Random.value <= healthItem1DropChance)
         {
             Instantiate(healthItem1Prefab, position, Quaternion.identity);
         }
-        else if (random <= healthItem2DropChance)
+        else if (Random.value <= healthItem2DropChance)
         {
             Instantiate(healthItem2Prefab, position, Quaternion.identity);
         }

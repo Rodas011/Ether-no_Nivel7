@@ -5,7 +5,6 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private GameState gameState;
     [SerializeField] private GameObject enemy;
     [SerializeField] private Transform[] spawnPoints;
-    [SerializeField] private float timeBossSpawn = 60f;
     [SerializeField] private float minRandomRange = 0.5f;
     [SerializeField] private float maxRandomRange = 1f;
     [SerializeField] private float maxDistanceForValidation = 3f;
@@ -32,19 +31,20 @@ public class EnemySpawner : MonoBehaviour
             return;
         }
 
-        if (SimpleTimer.current.time > timeBossSpawn && GameObject.FindWithTag("Boss") == null)
-        {
-            InvokeRepeating("SpawnEnemies", 0f, spawnFrequencyWithBoss);
-        }
-
-        if (spawnWait >= spawnFrequency && GameObject.FindWithTag("Boss") == null)
+        if(spawnWait >= spawnFrequency)
         {
             SpawnEnemies();
             spawnWait = 0f;
+            if(!gameState.bossSpawned)
+            {
+                // Increment spawn frecuency and asure that the spawn frequency is never lower than 1
+                spawnFrequency = Mathf.Max(1f, spawnFrequencyInitial - (SimpleTimer.current.time) * 0.05f); 
+            }
+            else
+            {
+                spawnFrequency = spawnFrequencyWithBoss;
+            }
         }
-
-        spawnFrequency = Mathf.Max(1f, spawnFrequencyInitial - (SimpleTimer.current.time) * 0.05f); // Asure that the spawn frequency is never lower than 1
-
         spawnWait += Time.deltaTime;
     }
 

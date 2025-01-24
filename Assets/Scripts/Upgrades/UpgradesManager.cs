@@ -127,7 +127,7 @@ public class UpgradesManager : MonoBehaviour
                 }
                 selectedUpgrade.level += 1;
                 UpdateDamageIcon(selectedUpgrade.level);
-                playerBaseStats.damage += selectedUpgrade.value;
+                playerBaseStats.damage *= selectedUpgrade.value;
                 playerBaseStats.faith -= selectedUpgrade.price;
                 break;
             case 1: // Defense
@@ -138,7 +138,7 @@ public class UpgradesManager : MonoBehaviour
                 }
                 selectedUpgrade.level += 1;
                 UpdateDefenseIcon(selectedUpgrade.level);
-                playerBaseStats.defense += selectedUpgrade.value;
+                playerBaseStats.defense *= selectedUpgrade.value;
                 playerBaseStats.faith -= selectedUpgrade.price;
                 break;
             case 2: // Health
@@ -149,7 +149,7 @@ public class UpgradesManager : MonoBehaviour
                 }
                 selectedUpgrade.level += 1;
                 UpdateHealthIcon(selectedUpgrade.level);
-                playerBaseStats.health += selectedUpgrade.value;
+                playerBaseStats.health *= selectedUpgrade.value;
                 playerBaseStats.faith -= selectedUpgrade.price;
                 break;
             case 3: // Speed
@@ -160,7 +160,7 @@ public class UpgradesManager : MonoBehaviour
                 }
                 selectedUpgrade.level += 1;
                 UpdateSpeedIcon(selectedUpgrade.level);
-                playerBaseStats.speed += selectedUpgrade.value;
+                playerBaseStats.speed *= selectedUpgrade.value;
                 playerBaseStats.faith -= selectedUpgrade.price;
                 break;
             case 4: // Attack Frequency
@@ -171,7 +171,7 @@ public class UpgradesManager : MonoBehaviour
                 }
                 selectedUpgrade.level += 1;
                 UpdateAttackFrequencyIcon(selectedUpgrade.level);
-                playerBaseStats.attackFrequency -= selectedUpgrade.value;
+                playerBaseStats.attackFrequency *= selectedUpgrade.value;
                 playerBaseStats.faith -= selectedUpgrade.price;
                 break;
             case 5: // Shield Frequency
@@ -182,7 +182,7 @@ public class UpgradesManager : MonoBehaviour
                 }
                 selectedUpgrade.level += 1;
                 UpdateShieldFrequencyIcon(selectedUpgrade.level);
-                playerBaseStats.shieldFrequency -= selectedUpgrade.value;
+                playerBaseStats.shieldFrequency *= selectedUpgrade.value;
                 playerBaseStats.faith -= selectedUpgrade.price;
                 break;
             default:

@@ -122,7 +122,7 @@ MonoBehaviour:
   currentStage: 1
   currentExperience: 0
   experienceToNextStage: 100
-  experienceGrowthFactor: 1.5
+  experienceGrowthFactor: 2.5
 --- !u!114 &4704440423535884422
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -155,7 +155,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  timeBossSpawn: 60
   minRandomRange: 1
   maxRandomRange: 2
   maxDistanceForValidation: 3
@@ -181,7 +180,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  timeBossSpawn: 60
   minRandomRange: 1
   maxRandomRange: 2
   maxDistanceForValidation: 3
@@ -221,4 +219,4 @@ MonoBehaviour:
   healthItem2Prefab: {fileID: 3272799848643719425, guid: dfafe2099e9382347ae45f51692563af,
     type: 3}
   healthItem1DropChance: 0.1
-  healthItem2DropChance: 0.3
+  healthItem2DropChance: 0.25
