@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7da1e84a4e69e654eaeb73d77429a98e, type: 3}
   m_Name: PlayerBaseStats
   m_EditorClassIdentifier: 
-  damage: 10
-  defense: 1
-  health: 100
-  speed: 5
-  attackFrequency: 0.5
-  shieldFrequency: 4
-  faith: 0
+  damage: 22.5
+  defense: 2.25
+  health: 150
+  speed: 6.6124997
+  attackFrequency: 0.256
+  shieldFrequency: 2.5600002
+  faith: 956

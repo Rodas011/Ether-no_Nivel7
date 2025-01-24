@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4010878482116586295}
   - component: {fileID: 7703769174755686504}
   - component: {fileID: 89695894926109096}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Bread
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54,7 +54,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.5, y: 0.5, z: 0.5}
+  m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &7703769174755686504
 MonoBehaviour:
@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 5559513858653000786}
   - component: {fileID: 673189715966767804}
   - component: {fileID: 2996724863341427974}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: BreadModelTest
   m_TagString: Untagged
   m_Icon: {fileID: 0}

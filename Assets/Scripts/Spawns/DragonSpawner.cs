@@ -24,5 +24,6 @@ public class DragonSpawner : MonoBehaviour
     {
         GameObject currentBoss = Instantiate(boss, bossSpawnPoint.position, Quaternion.identity);
         currentBoss.name = "Boss";
+        gameState.bossSpawned = true;
     }
 }
