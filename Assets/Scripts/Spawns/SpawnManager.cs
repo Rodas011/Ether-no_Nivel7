@@ -1,10 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+using TMPro;
 
 public class SpawnManager : MonoBehaviour
 {
@@ -13,6 +10,7 @@ public class SpawnManager : MonoBehaviour
     public Transform spawnDragonPoint; // Punto de spawn del jefe
     public Transform[] spawnPoints; // Puntos de spawn para enemigos
     public GameObject spawnedEnemies; // Contenedor de enemigos generados
+    public TMP_Text numRonda;
 
     public int round = 1; // Ronda actual
     public float spawnDelay = 0.3f; // Tiempo entre cada aparición de enemigos
@@ -21,6 +19,12 @@ public class SpawnManager : MonoBehaviour
     private int currentRound = 0; // Control de rondas activas
     private bool roundOver = false; // Controla si la ronda ha terminado
     private bool bossSpawned = false; // Controla si el jefe ha sido invocado
+
+
+    void Start()
+    {
+        numRonda.text = round.ToString();
+    }
 
     void Update()
     {
@@ -58,6 +62,7 @@ public class SpawnManager : MonoBehaviour
         if (roundOver)
         {
             round++;
+            numRonda.text = round.ToString();
             roundOver = false;
 
             // Resetear el estado del jefe si se superaron 10 rondas
