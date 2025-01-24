@@ -5,20 +5,20 @@ using TMPro;
 
 public class SpawnManager : MonoBehaviour
 {
-    public GameObject enemy; // Prefab del enemigo
-    public GameObject DragonBoss; // Prefab del jefe
-    public Transform spawnDragonPoint; // Punto de spawn del jefe
-    public Transform[] spawnPoints; // Puntos de spawn para enemigos
-    public GameObject spawnedEnemies; // Contenedor de enemigos generados
+    public GameObject enemy;
+    public GameObject DragonBoss;
+    public Transform spawnDragonPoint;
+    public Transform[] spawnPoints;
+    public GameObject spawnedEnemies;
     public TMP_Text numRonda;
 
-    public int round = 1; // Ronda actual
-    public float spawnDelay = 0.3f; // Tiempo entre cada aparición de enemigos
-    [SerializeField] private float delayRound = 2f; // Retraso para cambiar de ronda
+    public int round = 1;
+    public float spawnDelay = 0.3f;
+    [SerializeField] private float delayRound = 2f;
 
-    private int currentRound = 0; // Control de rondas activas
-    private bool roundOver = false; // Controla si la ronda ha terminado
-    private bool bossSpawned = false; // Controla si el jefe ha sido invocado
+    private int currentRound = 0;
+    private bool roundOver = false;
+    private bool bossSpawned = false;
 
 
     void Start()
@@ -28,13 +28,12 @@ public class SpawnManager : MonoBehaviour
 
     void Update()
     {
-        // Si la ronda ha cambiado, iniciar el spawn de enemigos o del jefe
         if (currentRound != round)
         {
-            if (round >= 10 && !bossSpawned) // Invocar jefe a partir de la ronda 10
+            if (round >= 10 && !bossSpawned)
             {
                 SpawnBoss();
-                bossSpawned = true; // Marcar que el jefe ya ha sido invocado
+                bossSpawned = true;
             }
             else
             {
@@ -47,38 +46,34 @@ public class SpawnManager : MonoBehaviour
 
     void LateUpdate()
     {
-        // Verificar si ya no hay enemigos vivos y la ronda no ha terminado
         if (spawnedEnemies != null && spawnedEnemies.transform.childCount == 0 && !roundOver)
         {
             roundOver = true;
             Invoke("ChangeRound", delayRound);
-            Debug.Log("Todos los enemigos han sido eliminados. Preparando la siguiente ronda...");
         }
     }
 
     void ChangeRound()
     {
-        // Avanzar a la siguiente ronda
+        // Next round
         if (roundOver)
         {
             round++;
             numRonda.text = round.ToString();
             roundOver = false;
 
-            // Resetear el estado del jefe si se superaron 10 rondas
             if (round % 10 != 0)
             {
                 bossSpawned = false;
             }
 
-            Debug.Log($"Se ha iniciado la ronda {round}");
         }
     }
 
     IEnumerator SpawnEnemiesGradually()
     {
-        int enemiesPerRound = round * 2; // Número total de enemigos por ronda
-        int enemiesSpawned = 0; // Contador de enemigos generados
+        int enemiesPerRound = round * 2;
+        int enemiesSpawned = 0;
 
         roundOver = false;
 
@@ -88,20 +83,19 @@ public class SpawnManager : MonoBehaviour
             {
                 if (enemiesSpawned >= enemiesPerRound) break;
 
-                // Generar un desplazamiento aleatorio en X y Z
+                // generate random spawn
                 float randomOffsetX = Random.Range(0f, 1f);
                 float randomOffsetZ = Random.Range(0f, 1f);
                 Vector3 offset = new Vector3(randomOffsetX, 0, randomOffsetZ);
                 Vector3 spawnPosition = spawnPoint.position + offset;
 
-                // Instanciar enemigo
+                // Instancite Enemy
                 GameObject enemyInstance = Instantiate(enemy, spawnPosition, Quaternion.identity);
                 enemyInstance.name = $"Enemigo Ronda {round} No {enemiesSpawned + 1}";
                 enemyInstance.transform.SetParent(spawnedEnemies.transform);
 
-                enemiesSpawned++; // Incrementar el contador de enemigos generados
+                enemiesSpawned++;
 
-                // Esperar antes de generar el siguiente enemigo
                 yield return new WaitForSeconds(spawnDelay);
             }
         }
@@ -109,11 +103,9 @@ public class SpawnManager : MonoBehaviour
 
     void SpawnBoss()
     {
-        // Instanciar al jefe en el punto de spawn específico
+        // Instanciate Boss
         GameObject dragonInstance = Instantiate(DragonBoss, spawnDragonPoint.position, Quaternion.identity);
         dragonInstance.name = "BossDragon";
         dragonInstance.transform.SetParent(spawnedEnemies.transform);
-
-        Debug.Log("¡El jefe ha aparecido!");
     }
 }

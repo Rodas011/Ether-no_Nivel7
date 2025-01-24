@@ -17,7 +17,6 @@ public class PlayerBaseStats : ScriptableObject
     {
         ResetStats();
         faith = 0;
-        Debug.Log("Player stats enabled");
     }
 
     public void ResetStats()
