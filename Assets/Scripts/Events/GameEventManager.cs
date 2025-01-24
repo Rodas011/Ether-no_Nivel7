@@ -1,15 +1,17 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameEventManager : MonoBehaviour
 {
     [SerializeField] private GameState gameState;
     [SerializeField] private Upgrades upgrades;
-    [SerializeField] private UIManager uiManager;
+    [SerializeField] private UIManagerCS uiManager;
     [SerializeField] private ProgressionManager progressionManager;
     [SerializeField] private FaithManager faithManager;
 
     private void Awake()
     {
+        Time.timeScale = 1f;
         gameState.Reset();
     }
 
@@ -32,12 +34,9 @@ public class GameEventManager : MonoBehaviour
     }
 
     private void HandleGameOver()
-    {
-        gameState.isPaused = true;
+    {   
+        uiManager.ShowGameOver();
         Time.timeScale = 0f;
-        gameState.isGameOver = true;
-        uiManager.ShowGameOverCanvas(true);
-        Debug.Log("Game Over!");
     }
 
     private void HandleFinnish()
@@ -45,8 +44,10 @@ public class GameEventManager : MonoBehaviour
         gameState.isPaused = true;
         Time.timeScale = 0f;
         gameState.isGameOver = true;
-        uiManager.ShowFinishCanvas(true);
+        //uiManager.ShowFinishCanvas(true);
         Debug.Log("Finnish!");
+
+        SceneManager.LoadScene(3);
     }
 
     private void HandlePause()
@@ -55,13 +56,13 @@ public class GameEventManager : MonoBehaviour
         {
             gameState.isPaused = true;
             Time.timeScale = 0f;
-            uiManager.ShowPauseCanvas(true);
+            //uiManager.ShowPauseCanvas(true);
         }
         else
         {
             gameState.isPaused = false;
             Time.timeScale = 1f;
-            uiManager.ShowPauseCanvas(false);
+            //uiManager.ShowPauseCanvas(false);
         }
     }
 
@@ -91,7 +92,7 @@ public class GameEventManager : MonoBehaviour
     {
         gameState.isPaused = true;
         Time.timeScale = 0f;
-        uiManager.ShowTempUpgradesCanvas(true);
+        //uiManager.ShowTempUpgradesCanvas(true);
     }
 
 }

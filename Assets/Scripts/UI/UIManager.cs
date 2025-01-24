@@ -15,29 +15,18 @@ public class UIManager : MonoBehaviour
             gameOverCanvas = GameObject.Find("CanvasGameOver");
             gameOverCanvas.SetActive(false);
         }
-        else
-        {
-            Debug.LogError("Canvas for Game Over not found");
-        }
 
         if (GameObject.Find("CanvasFinish"))
         {
             finishCanvas = GameObject.Find("CanvasFinish");
             finishCanvas.SetActive(false);
         }
-        else
-        {
-            Debug.LogError("Canvas for Finish not found");
-        }
+
 
         if (GameObject.Find("CanvasPause"))
         {
             pauseCanvas = GameObject.Find("CanvasPause");
             pauseCanvas.SetActive(false);
-        }
-        else
-        {
-            Debug.LogError("Canvas for Pause not found");
         }
 
         if (GameObject.Find("CanvasTempUpgrades"))
@@ -45,10 +34,7 @@ public class UIManager : MonoBehaviour
             tempUpgradesCanvas = GameObject.Find("CanvasTempUpgrades");
             tempUpgradesCanvas.SetActive(false);
         }
-        else
-        {
-            Debug.LogError("Canvas for Temp Upgrades not found");
-        }
+        
     }
 
     public void ShowGameOverCanvas(bool show)

@@ -57,5 +57,6 @@ public class PlayerMovement : MonoBehaviour
         {
             transform.LookAt(new Vector3(hit.point.x, transform.position.y, hit.point.z));
         }
+
     }
 }

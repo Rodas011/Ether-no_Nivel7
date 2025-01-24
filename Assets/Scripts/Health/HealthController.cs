@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class HealthController : MonoBehaviour
 {
@@ -7,6 +8,8 @@ public class HealthController : MonoBehaviour
     private float defense;
     public bool isShieldActive;
     private PlayerController playerController;
+
+    public Slider healthSlider;
 
     //Get the max health from the PlayerController or the EnemyController
     void Awake()
@@ -46,6 +49,11 @@ public class HealthController : MonoBehaviour
             float realDamage = damage / defense;
             currentHealth -= realDamage;
             Debug.Log($"{gameObject.name} has taken {realDamage} damage.");
+            if (this.gameObject.tag == "Player")
+            {
+                UpdateHealth();
+            }
+            
 
             if (currentHealth <= 0)
             {
@@ -58,5 +66,10 @@ public class HealthController : MonoBehaviour
     {
         Debug.Log($"{gameObject.name} has died.");
         GameEvents.current.ObjectDied(gameObject);
+    }
+
+    void UpdateHealth()
+    {
+        healthSlider.value = currentHealth / maxHealth;
     }
 }

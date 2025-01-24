@@ -6,9 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/StartMenu.unity
-    guid: 2c3134a8f48f83f46800e354354fd2ec
+    path: Assets/Scenes/Testing/MenuInicial.unity
+    guid: e4e603fe726c3164a9bfb54f37656bd0
   - enabled: 1
-    path: Assets/Scenes/Level7.unity
-    guid: 3982f5fea5d5b114f90809a36b35f1cf
+    path: Assets/Scenes/Testing/Creditos.unity
+    guid: 5ea3a8d5335db07418b63a6bf2bad9ed
+  - enabled: 1
+    path: Assets/Scenes/Testing/CadavidTesting.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/Testing/Win.unity
+    guid: e300950867856034789750ed7ec2b894
   m_configObjects: {}

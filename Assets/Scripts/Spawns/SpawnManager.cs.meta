@@ -1,13 +1,9 @@
 fileFormatVersion: 2
-guid: 5a7746e6dd396dc4ba980acc60a03e8e
+guid: eea12e0e05f632546a2c1ce539995485
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences:
-  - gameState: {instanceID: 0}
-  - enemy: {instanceID: 0}
-  - boss: {instanceID: 0}
-  - bossSpawnPoint: {instanceID: 0}
+  defaultReferences: []
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
