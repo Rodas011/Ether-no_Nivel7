@@ -3,7 +3,6 @@ Proyecto para el curso de Desarrollo de Videojuegos de Academy By Polygonus
 
 ## Integrantes
 - Maira Daniela Rodas Álvarez -	mrodas011@gmail.com
-- Juan Manuel Cadavid Salazar - 	juanmanuel970212@gmail.com
 
 ## Convenciones
 - Todos los nombres de los commits, de los archivos y del código en general deben estar en inglés.
